@@ -1,0 +1,8 @@
+#windows
+Thumbs.db
+
+#mac
+.DS_Store
+
+/node_modules/
+/source/lib/
