@@ -109,7 +109,7 @@ module.exports = function (gulp, $) {
             .pipe($.watch([
                 codePath+'**/*.html',
                 codePath+'**/*.js',
-                '!'+codePath+'lib/**/*'
+                '!'+codePath+'lib/**/*',
                 '!'+codePath+'bower/**/*'
             ]))
             .pipe($.livereload());

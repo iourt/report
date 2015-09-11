@@ -1,6 +1,30 @@
-﻿.mod_login {
+﻿//toast样式
+.notifier {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    span {
+        display: inline-block;
+        padding: 10px 15px;
+        background: rgba(0, 0, 0, .6);
+        @include border-radius(5px);
+    }
+}
+
+
+.mod_login {
     width: 300px;
+    height: 140px;
     margin: 0 auto;
+    
+    position: absolute;
+    left: 50%;
+    top: 150px;
+    margin-left: -150px;
+
     li {
         @include border-half();
         @include box($align: center);

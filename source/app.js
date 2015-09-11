@@ -32,6 +32,6 @@ angular.module('Huijm', [
 
 
     // $urlRouterProvider.when('', '/index.htm');
-    $urlRouterProvider.otherwise('/report/login.htm');
+    $urlRouterProvider.otherwise('/report/index.htm');
 
 });

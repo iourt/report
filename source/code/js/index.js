@@ -1,6 +1,4 @@
-// 首页
-angular.module('Tjoys')
-
+angular.module('Huijm')
 .controller('tIndex', function (
     $scope,
     $rootScope

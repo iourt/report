@@ -21,8 +21,6 @@
     display: none;
 
     border-top: 1px solid #ddf28d;
-    // border-bottom: 1px solid #95b905;
-    -webkit-box-shadow: 1px 1px 3px rgba(129,160,3,1);
     -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
 
     &.show {
@@ -35,7 +33,7 @@
         @include box($align: center);
         li {
             display: block;
-            width: 80px;
+            padding: 0 10px;
             line-height: 20px;
             margin: 0 10px;
             text-align: center;
