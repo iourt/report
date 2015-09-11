@@ -1,0 +1,33 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+    color: #72685e;
+    background: #e8e2d4;
+    position: relative;
+}
+body.tbody {
+    padding-top: 130px;
+    padding-left: 200px;
+    background: -webkit-linear-gradient(left, #74655e 0%, #74655e 200px, #e8e2d4 200px, #e8e2d4 100%);
+}
+
+
+ul, ol, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}
+
+input {
+    outline: none;
+}

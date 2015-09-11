@@ -1,0 +1,32 @@
+﻿.mod_login {
+    width: 300px;
+    margin: 0 auto;
+    li {
+        @include border-half();
+        @include box($align: center);
+        label,
+        input {
+            display: block;
+        }
+        label {
+            width: 60px;
+        }
+        input {
+            -webkit-box-flex: 1;
+            border: 0;
+            line-height: 20px;
+            padding: 10px;
+        }
+
+        &:last-child {
+            display: block;
+            cursor: pointer;
+            border: 0;
+            margin-top: 10px;
+            background: #f90;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+        }
+    }
+}

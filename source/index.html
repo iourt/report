@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="no-js" ng-app="phoneApp">
+<html ng-app="Huijm">
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <title>APP HTML</title>
+        <title>Report</title>
         <!-- build:css -->
         <link rel="stylesheet" href="themes/all.css">
         <!-- endbuild -->
     </head>
-    <body>
+    <body ng-class="{tbody: showHeader}">
 
         <div ui-view id="js_view"></div>
 
         <!-- build:js -->
-        <script src="lib/angular/angular.js"></script>
-        <script src="lib/angular-touch/angular-touch.js"></script>
-        <script src="lib/angular-route/angular-route.js"></script>
-        <script src="lib/angular-ui-router/release/angular-ui-router.js"></script> 
+        <script src="lib/md5.js"></script>
+
+        <script src="bower/angular/angular.js"></script>
+        <script src="bower/angular-touch/angular-touch.js"></script>
+        <script src="bower/angular-route/angular-route.js"></script>
+        <script src="bower/angular-ui-router/release/angular-ui-router.js"></script> 
 
         <script src="app.js"></script>
         <!-- injectcommon:js -->
