@@ -10,11 +10,12 @@
     font-style: normal;
 }
 
-$green:  #39b67c;
-$red:    #dc2822;
-$orange: #ff9600;
-$link:   #e6e1db;
-$text:   #72685e;
+$green:   #39b67c;
+$red:     #dc2822;
+$orange:  #ff9600;
+$link:    #e6e1db;
+$text:    #72685e;
+$bgcolor: #e8e2d4;
 
 @mixin font-icon () {    
     font-family: "Ionicons";

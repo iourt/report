@@ -1,0 +1,26 @@
+{
+    "Page": [
+        {
+            "PageName": "回家首页"
+        },
+        {
+            "PageName": "广告推广页面"
+        },
+        {
+            "PageName": "回家主体页面"
+        },
+        {
+            "PageName": "社区详情页面"
+        },
+        {
+            "PageName": "回家首页"
+        },
+        {
+            "PageName": "回家首页"
+        }
+    ],
+
+    "Response": {
+        "Ack": "Success"
+    }
+}

@@ -222,7 +222,8 @@ module.exports = function (gulp, $) {
         		codePath+'bower/angular/angular.js',
         		codePath+'bower/angular-touch/angular-touch.js',
         		codePath+'bower/angular-route/angular-route.js',
-        		codePath+'bower/angular-ui-router/release/angular-ui-router.js' 
+        		codePath+'bower/angular-ui-router/release/angular-ui-router.js',
+                codePath+'bower/highcharts-ng/highcharts-ng.js'
             ];
 
         gulp.src(framejs)

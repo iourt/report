@@ -54,3 +54,18 @@
         }
     }
 }
+
+
+.mod_filter {
+    @include box();
+    margin-bottom: 10px;
+    li {
+        display: block;
+        line-height: 30px;
+        padding: 0 10px;
+        background: $text;
+        margin-right: 10px;
+        color: $bgcolor;
+        cursor: pointer;
+    }
+}

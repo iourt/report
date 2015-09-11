@@ -5,21 +5,42 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>Report</title>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+        <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
         <!-- build:css -->
         <link rel="stylesheet" href="themes/all.css">
         <!-- endbuild -->
     </head>
     <body ng-class="{tbody: showHeader}">
 
-        <div ui-view id="js_view"></div>
+        <header-bar></header-bar>
+        <menu-bar></menu-bar>
+        <div class="mod_wrapper" ui-view id="js_view"></div>
 
         <!-- build:js -->
         <script src="lib/md5.js"></script>
 
+        <!--<script src="lib/jquery.min.js"></script>-->
+        <!--<script src="lib/highstock.src.js"></script>-->
+        <script src="lib/standalone-framework.js"></script>
+        <script src="lib/highcharts.js"></script>
+        <!--
+        <script src="lib/map.js"></script>
+        <script src="lib/world.js"></script>
+        -->
+
+        <!--
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/maps/modules/map.js"></script>
+        <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
+        -->
+
         <script src="bower/angular/angular.js"></script>
         <script src="bower/angular-touch/angular-touch.js"></script>
         <script src="bower/angular-route/angular-route.js"></script>
-        <script src="bower/angular-ui-router/release/angular-ui-router.js"></script> 
+        <script src="bower/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <script src="bower/highcharts-ng/src/highcharts-ng.js"></script> 
 
         <script src="app.js"></script>
         <!-- injectcommon:js -->
@@ -29,7 +50,6 @@
         <script src="common/widget.js"></script>
         <script src="common/directives/delegate_event.js"></script>
         <script src="common/directives/menu_bar.js"></script>
-        <script src="common/directives/photo.js"></script>
         <script src="common/directives/router_redirect.js"></script>
         <!-- endinject -->
         

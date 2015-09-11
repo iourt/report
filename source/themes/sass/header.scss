@@ -1,11 +1,4 @@
 ﻿.mod_wrapper {
-    width: 100%;
-    @include box();
-
-    .mod_right {
-        padding: 10px;
-        -webkit-box-flex: 1;
-    }
 }
 
 
@@ -61,7 +54,6 @@
     position: fixed;
     left: 0;
     top: 60px;
-        
     display: block;
     width: 200px;
     display: none;
@@ -71,37 +63,19 @@
 
     ul {
         li {
-            padding: 0 10px;
-            display: none;
-            &.show {
-                display: block;
+            padding-left: 10px;
+            @include icon(
+                $type: "\f35c",
+                $size: 20px,
+                $color: #e8e2d4
+            );
+            &:before {
+                margin-right: 5px;
             }
-
-            dl {
-                dt {
-                    line-height: 30px;
-                    color: #000;
-                    @include icon(
-                        $type: \f35c,
-                        $size: 20px,
-                        $color: #000
-                    );
-                    &:before {
-                        margin-right: 5px;
-                    }
-                }
-                dd {
-                    // line-height: 40px;
-                    // @include border-half($type: bottom);
-
-                    a {
-                        line-height: 30px;
-                        display: block;
-                        color: $link;
-                        text-indent: 20px;
-                    }
-                }
-            }
+            margin-bottom: 10px;
+            line-height: 30px;
+            font-size: 14px;
+            color: #e8e2d4;
         }
     }
 }

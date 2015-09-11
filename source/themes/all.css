@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Ionicons";
   src: url("fonts/ionicons.eot");
@@ -18,9 +19,9 @@ body {
   height: 100%; }
 
 body.tbody {
-  padding-top: 130px;
-  padding-left: 200px;
   background: -webkit-linear-gradient(left, #74655e 0%, #74655e 200px, #e8e2d4 200px, #e8e2d4 100%); }
+  body.tbody .mod_wrapper {
+    padding-top: 65px; }
 
 ul, ol, li {
   list-style: none; }
@@ -33,15 +34,6 @@ img {
 
 input {
   outline: none; }
-
-.mod_wrapper {
-  width: 100%;
-  display: -webkit-box;
-  -webkit-box-align: "";
-  -webkit-box-pack: ""; }
-  .mod_wrapper .mod_right {
-    padding: 10px;
-    -webkit-box-flex: 1; }
 
 .mod_header {
   position: fixed;
@@ -91,35 +83,28 @@ input {
   .mod_menu.show {
     display: block; }
   .mod_menu ul li {
-    padding: 0 10px;
-    display: none; }
-    .mod_menu ul li.show {
-      display: block; }
-    .mod_menu ul li dl dt {
-      line-height: 30px;
-      color: #000; }
-      .mod_menu ul li dl dt:before {
-        font-family: "Ionicons";
-        font-weight: normal;
-        display: inline-block;
-        vertical-align: middle;
-        content: "\\f35c";
-        font-size: 20px;
-        color: #000;
-        line-height: "";
-        width: "";
-        height: "";
-        text-align: "";
-        background: "";
-        border-radius: 0;
-        float: ""; }
-      .mod_menu ul li dl dt:before {
-        margin-right: 5px; }
-    .mod_menu ul li dl dd a {
-      line-height: 30px;
-      display: block;
-      color: #e6e1db;
-      text-indent: 20px; }
+    padding-left: 10px;
+    margin-bottom: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #e8e2d4; }
+    .mod_menu ul li:before {
+      font-family: "Ionicons";
+      font-weight: normal;
+      display: inline-block;
+      vertical-align: middle;
+      content: "";
+      font-size: 20px;
+      color: #e8e2d4;
+      line-height: "";
+      width: "";
+      height: "";
+      text-align: "";
+      background: "";
+      border-radius: 0;
+      float: ""; }
+    .mod_menu ul li:before {
+      margin-right: 5px; }
 
 .notifier {
   position: absolute;
@@ -168,3 +153,17 @@ input {
       line-height: 40px;
       text-align: center;
       color: #fff; }
+
+.mod_filter {
+  display: -webkit-box;
+  -webkit-box-align: "";
+  -webkit-box-pack: "";
+  margin-bottom: 10px; }
+  .mod_filter li {
+    display: block;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #72685e;
+    margin-right: 10px;
+    color: #e8e2d4;
+    cursor: pointer; }

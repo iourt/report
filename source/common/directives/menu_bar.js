@@ -25,7 +25,9 @@ angular.module('Huijm')
 
 // 子菜单
 .directive('menuBar', function (
-    $window
+    $rootScope,
+    $window,
+    widget
 ) {
     return {
         restrict: 'E',
@@ -33,6 +35,21 @@ angular.module('Huijm')
         templateUrl: 'common/directives/menu_sub_bar.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
+            $rootScope.PageName = {};
+
+            widget.ajaxRequest({
+                scope: $scope,
+                url: 'getPageList',
+                success: function (data) {
+                    console.log(data);
+                    angular.extend($rootScope.PageName, data);
+
+                    console.log($rootScope.PageName);
+                },
+                error: function () {
+
+                }
+            });
         }
     };
 });

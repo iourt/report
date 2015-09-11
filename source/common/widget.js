@@ -147,11 +147,11 @@ angular.module('Huijm')
                     isAckError  : true //------------Respone.Ack=Failure时是否显示错误信息
                 },
                 ajaxConfig = { //-----------------ajax请求配置
-                    method: 'POST',
-                    url: se.apiSocket + params.url || '',
+                    // method: 'POST',
+                    // url: self.config().apiSocket + params.url || '',
 
-                    // method: 'GET',
-                    // url: ENV.apiSocket + params.url + '.json' || '',
+                    method: 'GET',
+                    url: self.config().apiSocket + params.url + '.json' || '',
 
                     data: postOpt,
                     timeout: 15000
