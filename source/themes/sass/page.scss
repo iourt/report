@@ -15,6 +15,25 @@
 }
 
 
+.mod_wrapper {
+    width: 100%;
+    display: table;
+    .table_left,
+    .table_mid,
+    .table_right {
+        display: table-cell;
+    }
+    .table_left {
+        width: 160px;
+    }
+    .table_mid {
+        padding-bottom: 10px;
+    }
+    .table_right {
+        width: 10px;
+    }
+}
+
 .mod_login {
     width: 300px;
     height: 140px;

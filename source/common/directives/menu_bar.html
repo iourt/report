@@ -1,19 +1,74 @@
-<header class="mod_header" ng-class="{show: showHeader}">
-    <ul ngd-click="showMenu($event)" selector="li">
-        <li>
-            回家么数据查询
-        </li>
-        <li>
-            用户行为数据
-        </li>
-        <li>
-            经营数据
-        </li>
-        <li>
-            产品
-        </li>
-        <li>
-            其他
-        </li>
-    </ul>
-</header>
+<div>
+    <header class="mod_header" ng-class="{show: showMenu}">
+        <ul ngd-click="subMenu($event)" selector="li">
+            <li data-id="1">
+                回家么
+            </li>
+            <li data-id="1" ng-class="{current: MenuId == 1}">
+                行为数据统计
+            </li>
+            <li data-id="2" ng-class="{current: MenuId == 2}">
+                经营数据统计
+            </li>
+    <!--         <li data-id="3" ng-class="{current: MenuId == 3}">
+                产品
+            </li>
+            <li data-id="4" ng-class="{current: MenuId == 4}">
+                其他
+            </li> -->
+        </ul>
+    </header>
+
+
+    <div class="mod_menu" ng-class="{show: MenuId == 1}">
+        <p class="current">数据概况</p>
+        <dl>
+            <dt>趋势分析</dt>
+            <dd>
+                <ul>
+                    <li>
+                        实时统计
+                    </li>
+                    <li>
+                        今天统计
+                    </li>
+                    <li>
+                        昨日统计
+                    </li>
+                    <li>
+                        最近30天
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
+        <dl>
+            <dt>按模块分析</dt>
+            <dd>
+                <ul>
+                    <li sref="">
+                        活动
+                    </li>
+                    <li>
+                        注册
+                    </li>
+                    <li>
+                        认证
+                    </li>
+                    <li>
+                        一起玩
+                    </li>
+                    <li>
+                        邻里圈
+                    </li>
+                    <li>
+                        消息
+                    </li>
+                    <li>
+                        小区首页
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+</div>

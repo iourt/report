@@ -1,7 +1,4 @@
-﻿.mod_wrapper {
-}
-
-
+﻿
 .mod_header {
     position: fixed;
     left: 0;
@@ -20,7 +17,7 @@
     }
 
     ul {
-        background: #3cc482;
+        background: $green;
         height: 50px;
         @include box($align: center);
         li {
@@ -34,9 +31,8 @@
             a {
                 color: #fff;
             }
-
-            &.show {
-                color: #fff;
+            &.current {
+                color: #000;
             }
         }
     }
@@ -52,28 +48,39 @@
     position: fixed;
     left: 0;
     top: 60px;
-    display: block;
-    width: 200px;
+    width: 150px;
     display: none;
     &.show {
         display: block;
     }
-
-    ul {
-        li {
-            padding-left: 10px;
-            // @include icon(
-            //     $type: "\f35c",
-            //     $size: 20px,
-            //     $color: #e8e2d4
-            // );
-            // &:before {
-            //     margin-right: 5px;
-            // }
-            margin-bottom: 10px;
-            line-height: 30px;
-            font-size: 14px;
-            color: #333;
+    p {
+        line-height: 30px;
+        text-indent: 10px;
+    }
+    dl {
+        dt {
+            padding: 5px 0;
+            line-height: 20px;
+            background: #999;
+            color: #fff;
+            text-indent: 20px;
+            @include border-half($type: y);
+        }
+        dd {
+            ul {
+                li {
+                    padding-left: 10px;
+                    line-height: 30px;
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+            }
+        } 
+    }
+    p, li {
+        &.current {
+            background: $green;
+            color: #fff;
         }
     }
 }

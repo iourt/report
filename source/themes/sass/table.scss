@@ -1,0 +1,32 @@
+﻿.mod_table_01 {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;  
+    dt,
+    dd {
+        display: table-row;
+        div {
+            text-align: center;
+            padding: 10px 0;
+            display: table-cell;
+        }
+    }
+    dt {
+        background: #ddd;
+        div {
+            line-height: 20px;
+            color: #000;
+        }
+    }
+    dd {
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+        div {
+            line-height: 25px;
+            &:nth-child(1) {
+                text-align: left;
+                text-indent: 10px;
+            }
+        }
+    }
+}

@@ -1,7 +1,7 @@
 angular.module('Huijm')
 
 // 顶部菜单
-.directive('headerBar', function (
+.directive('menuBar', function (
     $window,
     $rootScope
 ) {
@@ -11,45 +11,14 @@ angular.module('Huijm')
         templateUrl: 'common/directives/menu_bar.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
-            $rootScope.Header = {
-                subMenu: 'web' // 默认显示网站管理
+            $scope.MenuId = 1;
+
+            $scope.subMenu = function (e) {
+                var $that = angular.element(e.delegationTarget),
+                    id = $that.attr('data-id');
+
+                $scope.MenuId = id;
             };
-
-            $scope.showSubmenu = function (type) {
-                $rootScope.Header.subMenu = type;
-            };
-        }
-    };
-})
-
-
-// 子菜单
-.directive('menuBar', function (
-    $rootScope,
-    $window,
-    widget
-) {
-    return {
-        restrict: 'E',
-        replace: true,
-        templateUrl: 'common/directives/menu_sub_bar.html',
-        // controller: function ($scope, $element, $attrs) {},
-        link: function ($scope, $element, $attrs) {
-            $rootScope.PageName = {};
-
-            widget.ajaxRequest({
-                scope: $scope,
-                url: 'getPageList',
-                success: function (data) {
-                    console.log(data);
-                    angular.extend($rootScope.PageName, data);
-
-                    console.log($rootScope.PageName);
-                },
-                error: function () {
-
-                }
-            });
         }
     };
 });

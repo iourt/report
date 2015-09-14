@@ -11,7 +11,7 @@ body {
     height: 100%;
 }
 body.tbody {
-    background: -webkit-linear-gradient(left, #ddd 0%, #ddd 200px, #f8f8f8 200px, #f8f8f8 100%);
+    background: -webkit-linear-gradient(left, #eee 0%, #eee 150px, #f8f8f8 150px, #f8f8f8 100%);
     .mod_wrapper {
         padding-top: 65px;
     }
@@ -32,4 +32,8 @@ img {
 
 input {
     outline: none;
+}
+
+.mb10 {
+    margin-bottom: 10px !important;
 }

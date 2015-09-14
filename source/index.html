@@ -11,29 +11,22 @@
         <link rel="stylesheet" href="themes/all.css">
         <!-- endbuild -->
     </head>
-    <body ng-class="{tbody: showHeader}">
+    <body ng-class="{tbody: showMenu}">
 
-        <header-bar></header-bar>
         <menu-bar></menu-bar>
-        <div class="mod_wrapper" ui-view id="js_view"></div>
+        <div class="mod_wrapper">
+            <div class="table_left"></div>
+            <div class="table_mid" ui-view id="js_view"></div>
+            <div class="table_right"></div>
+        </div>
+
 
         <!-- build:js -->
         <script src="lib/md5.js"></script>
 
-        <!--<script src="lib/jquery.min.js"></script>-->
-        <!--<script src="lib/highstock.src.js"></script>-->
-        <script src="lib/standalone-framework.js"></script>
+        <script src="lib/jquery-1.8.3.min.js"></script>
         <script src="lib/highcharts.js"></script>
-        <!--
-        <script src="lib/map.js"></script>
-        <script src="lib/world.js"></script>
-        -->
 
-        <!--
-        <script src="http://code.highcharts.com/highcharts.js"></script>
-        <script src="http://code.highcharts.com/maps/modules/map.js"></script>
-        <script src="http://code.highcharts.com/mapdata/custom/world.js"></script>
-        -->
 
         <script src="bower/angular/angular.js"></script>
         <script src="bower/angular-touch/angular-touch.js"></script>

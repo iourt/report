@@ -1,0 +1,38 @@
+﻿.mod_tab_01 {
+    background: #eee;
+    @include box();
+    li {
+        display: block;
+        line-height: 30px;
+        padding: 0 20px;
+        &.current {
+            background: #999;
+            color: #fff;
+        }
+    }
+}
+
+
+
+.mod_check_01 {
+    @include box();
+    li {
+        display: block;
+        line-height: 40px;
+        margin-right: 20px;
+        @include icon(
+            $type: "\f372",
+            $size: 14px,
+            $color: $green
+        );
+        &:before {
+            margin-right: 5px;
+        }
+        &.checked {
+            &:before {
+                content: "\f373";
+
+            }
+        }
+    }
+}

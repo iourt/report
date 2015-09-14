@@ -4,7 +4,7 @@ Huijm
     $rootScope,
     widget
 ){
-    $rootScope.showHeader = false;
+    $scope.showMenu = false;
 
     $scope.tInput = {};
 
