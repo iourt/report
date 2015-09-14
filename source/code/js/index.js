@@ -1,4 +1,4 @@
-angular.module('Huijm')
+Huijm
 .controller('tIndex', function (
     $scope,
     $rootScope

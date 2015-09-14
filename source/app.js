@@ -1,9 +1,11 @@
-angular.module('Huijm', [
+var Huijm = angular.module('Huijm', [
     'ui.router',
     'ui.router.router',
     'highcharts-ng',
     'DelegateEvents'
-])
+]);
+
+Huijm
 .config( function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
