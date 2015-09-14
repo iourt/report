@@ -1,1 +1,24 @@
-﻿
+﻿.mod_page_list {
+    dl {
+        width: 100%;
+        display: table;
+        border-collapse: collapse;  
+        dt, dd {
+            display: table-row;
+            div {
+                display: table-cell;
+                line-height: 20px;
+                padding: 10px;
+            }
+        }
+
+        dt {
+            background: $border;
+            font-weight: bold;
+        }
+        dd {
+            background: #fff;
+            border-bottom: 1px solid $border;
+        }
+    }
+}

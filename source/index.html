@@ -13,13 +13,7 @@
     </head>
     <body ng-class="{tbody: showMenu}">
 
-        <menu-bar></menu-bar>
-        <div class="mod_wrapper">
-            <div class="table_left"></div>
-            <div class="table_mid" ui-view id="js_view"></div>
-            <div class="table_right"></div>
-        </div>
-
+        <div ui-view></div>
 
         <!-- build:js -->
         <script src="lib/md5.js"></script>
@@ -50,6 +44,7 @@
         <!-- inject:js -->
         <script src="code/js/index.js"></script>
         <script src="code/js/login.js"></script>
+        <script src="code/js/page_detail.js"></script>
         <script src="code/js/page_list.js"></script>
         <!-- endinject -->
         <!-- endbuild -->

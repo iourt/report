@@ -20,8 +20,17 @@
     </header>
 
 
-    <div class="mod_menu" ng-class="{show: MenuId == 1}">
-        <p class="current">数据概况</p>
+    <div class="js_menu mod_menu" ngd-click="setCurrent($event)" selector="li" ng-class="{show: MenuId == 1}">
+        <dl>
+            <dd>
+                <ul>
+                    <li ui-sref="report.index">
+                        数据概况
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+
         <dl>
             <dt>趋势分析</dt>
             <dd>
@@ -46,26 +55,8 @@
             <dt>按模块分析</dt>
             <dd>
                 <ul>
-                    <li sref="">
-                        活动
-                    </li>
-                    <li>
-                        注册
-                    </li>
-                    <li>
-                        认证
-                    </li>
-                    <li>
-                        一起玩
-                    </li>
-                    <li>
-                        邻里圈
-                    </li>
-                    <li>
-                        消息
-                    </li>
-                    <li>
-                        小区首页
+                    <li ng-repeat="(k,v) in PageList.Page" ui-sref="report.page-list({id: v.Id})">
+                        {{v.Name}}
                     </li>
                 </ul>
             </dd>

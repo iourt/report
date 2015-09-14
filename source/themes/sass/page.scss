@@ -88,3 +88,76 @@
         cursor: pointer;
     }
 }
+
+
+
+// check filter
+.mod_check_01 {
+    @include box();
+    li {
+        display: block;
+        line-height: 40px;
+        margin-right: 20px;
+        @include icon(
+            $type: "\f372",
+            $size: 14px,
+            $color: #333
+        );
+        &:before {
+            margin-right: 5px;
+        }
+        &.checked {
+            color: $green;
+            &:before {
+                content: "\f373";
+                color: $green;
+            }
+        }
+    }
+}
+
+
+// 翻页布局
+.mod_next_page {
+    @include box();
+    li {
+        display: block;
+        background: #eee;
+        line-height: 30px;
+        padding: 0 10px;
+        border: 1px solid $border;
+        margin-right: 10px;
+        cursor: pointer;
+        &.current {
+            background: #999;
+            color: #fff;
+            border: 1px solid #999;
+        }
+    }
+}
+
+
+.mod_page_detail {
+    background: #eee;
+    border: 1px solid $border;
+    @include box();
+    li {
+        display: block;
+        -webkit-box-flex: 1;
+        text-align: center;
+        padding: 10px 0;
+        border-right: 1px solid $border;
+        &:last-child {
+            border: none;
+        }
+        p {
+            color: #000;
+            font-size: 16px;
+            line-height: 20px;
+            &:nth-child(1) {
+                color: #999;
+                font-size: 12px;
+            }
+        }
+    }
+}
