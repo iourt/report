@@ -1,4 +1,4 @@
-angular.module('Huijm')
+Huijm
 .controller('tLogin', function (
     $scope,
     $rootScope,

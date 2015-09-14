@@ -13,15 +13,14 @@
     overflow: hidden;
     display: none;
 
-    border-top: 1px solid #ddf28d;
-    -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 
     &.show {
         display: block;
     }
 
     ul {
-        background: -webkit-linear-gradient(top, #c4e63a 0%, #b0ce2e 100%);
+        background: #3cc482;
         height: 50px;
         @include box($align: center);
         li {
@@ -30,12 +29,11 @@
             line-height: 20px;
             margin: 0 10px;
             text-align: center;
-            color: #333;
+            color: #fff;
             cursor: pointer;
             a {
-                color: #333;
+                color: #fff;
             }
-            text-shadow: 1px 1px 1px rgba(129,160,3,0.6);
 
             &.show {
                 color: #fff;
@@ -64,18 +62,18 @@
     ul {
         li {
             padding-left: 10px;
-            @include icon(
-                $type: "\f35c",
-                $size: 20px,
-                $color: #e8e2d4
-            );
-            &:before {
-                margin-right: 5px;
-            }
+            // @include icon(
+            //     $type: "\f35c",
+            //     $size: 20px,
+            //     $color: #e8e2d4
+            // );
+            // &:before {
+            //     margin-right: 5px;
+            // }
             margin-bottom: 10px;
             line-height: 30px;
             font-size: 14px;
-            color: #e8e2d4;
+            color: #333;
         }
     }
 }
