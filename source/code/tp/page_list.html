@@ -1,12 +1,17 @@
+<!-- <h3 class="mod_page_title">注册模块相关页面列表</h3> -->
 <div class="mod_page_list mb10">
     <dl>
         <dt>
+            <div></div>
             <div>PageId</div>
-            <div>页面名称</div>
+            <div>PageName</div>
+            <div>URL</div>
         </dt>
         <dd ng-repeat="(k,v) in DataList.List track by $index" ui-sref="report.page-detail({id: v.Id})">
+            <div>{{v.Id}}</div>
             <div>{{v.PageId}}</div>
             <div>{{v.Name}}</div>
+            <div>{{v.Url}}</div>
         </dd>
     </dl>
 </div>

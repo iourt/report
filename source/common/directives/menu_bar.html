@@ -35,9 +35,9 @@
             <dt>趋势分析</dt>
             <dd>
                 <ul>
-                    <li>
+              <!--       <li>
                         实时统计
-                    </li>
+                    </li> -->
                     <li>
                         今天统计
                     </li>
@@ -55,6 +55,7 @@
             <dt>按模块分析</dt>
             <dd>
                 <ul>
+                    <!-- ui-sref-active="current" -->
                     <li ng-repeat="(k,v) in PageList.Page" ui-sref="report.page-list({id: v.Id})">
                         {{v.Name}}
                     </li>

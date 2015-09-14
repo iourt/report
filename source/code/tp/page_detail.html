@@ -22,11 +22,14 @@
 </ul>
 
 
-<ul class="mod_check_01 mb10">
-    <li class="checked">按钮点击统计</li>
-    <li>页面停留时间</li>
-    <li>浏览量(PV)</li>
+<ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
+    <li ng-class="{checked: CheckId == 1}">浏览量(PV)</li>
+    <li ng-class="{checked: CheckId == 2}">页面停留时间</li>
+    <li ng-class="{checked: CheckId == 3}">按钮点击统计</li>
 </ul>
+
+<div id="chart" class="mb10"></div>
+<!-- <highchart id="chart" config="chartConfig" class="mb20"></highchart> -->
 
 
 <dl class="mod_table_01">

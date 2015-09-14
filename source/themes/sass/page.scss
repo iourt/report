@@ -98,6 +98,7 @@
         display: block;
         line-height: 40px;
         margin-right: 20px;
+        cursor: pointer;
         @include icon(
             $type: "\f372",
             $size: 14px,
@@ -129,9 +130,9 @@
         margin-right: 10px;
         cursor: pointer;
         &.current {
-            background: #999;
+            background: $green;
             color: #fff;
-            border: 1px solid #999;
+            border: 1px solid $green;
         }
     }
 }
@@ -161,3 +162,17 @@
         }
     }
 }
+
+.mod_page_title {
+    background: $green;
+    line-height: 20px;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 0 10px;
+    margin-left: -10px;
+}
+
+

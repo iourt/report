@@ -30,6 +30,7 @@ angular.module('Huijm')
 
                 $that.addClass('current');
             };
+            
 
             widget.ajaxRequest({
                 scope: $scope,

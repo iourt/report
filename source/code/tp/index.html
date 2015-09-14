@@ -33,12 +33,12 @@
 </ul>
 
 
-<ul class="mod_check_01 mb10">
-    <li class="checked">浏览量(PV)</li>
-    <li>访客数(UV)</li>
-    <li>IP数</li>
-    <li>跳出率</li>
-    <li>平均访问时长</li>
+<ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
+    <li ng-class="{checked: CheckId == 1}">浏览量(PV)</li>
+    <li ng-class="{checked: CheckId == 2}">访客数(UV)</li>
+    <li ng-class="{checked: CheckId == 3}">IP数</li>
+    <li ng-class="{checked: CheckId == 4}">跳出率</li>
+    <li ng-class="{checked: CheckId == 5}">平均访问时长</li>
 </ul>
 
 <div id="chart"></div>
