@@ -9,11 +9,12 @@ Huijm
         TimeId: 1,
         TimeText: '今天',
         CheckId: 1,
-        CheckText: '浏览量(PV)'
+        CheckText: '浏览量(PV)',
+        View: 'photo'
     };
 
-    charts();
 
+    charts();   
 
 
     $scope.setTime = function (e) {
@@ -22,7 +23,7 @@ Huijm
         $scope.Page.TimeId = $that.index() + 1;
         $scope.Page.TimeText = $that.text();
 
-        charts();
+        charts();   
     };
 
 
@@ -32,11 +33,23 @@ Huijm
         $scope.Page.CheckId = $that.index() + 1;
         $scope.Page.CheckText = $that.text();
 
+        charts();   
+    };
+
+
+    $scope.setView = function (e) {
+        var $that = angular.element(e.delegationTarget);
+
+        $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
+        $scope.Page.View = $that.attr('data-type');
+
         charts();
     };
 
 
     function charts() {
+        if ($scope.Page.View != 'photo') return;
+
         var charts = new Highcharts.Chart({
             chart: {
                 renderTo : 'chart',

@@ -43,7 +43,7 @@ Huijm
 
     // 模块分页
     .state('report.page-list', {
-        url: '/page-list-{id}.htm',
+        url: '/page-list-{id}.htm?name',
         templateUrl: 'code/tp/page_list.html',
         controller: 'tPageList'
     })

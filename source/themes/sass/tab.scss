@@ -45,12 +45,20 @@
 
 
 .mod_tab_02 {
+    margin-bottom: 10px;
     display: inline-block;
     ul {
         @include box();
         background: #eee;
         li {
             display: block;
+            line-height: 30px;
+            padding: 0 10px;
+            cursor: pointer;
+            &.current {
+                background: $green;
+                color: #fff;
+            }
         }
     }
 }

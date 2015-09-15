@@ -53,7 +53,7 @@
             <dd>
                 <ul>
                     <!-- ui-sref-active="current" -->
-                    <li ng-repeat="(k,v) in PageList.Page" ui-sref="report.page-list({id: v.Id})">
+                    <li ng-repeat="(k,v) in PageList.Page" ui-sref="report.page-list({id: v.Id, name: v.Name})">
                         {{v.Name}}
                     </li>
                 </ul>

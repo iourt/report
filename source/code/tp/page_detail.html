@@ -48,18 +48,17 @@
 </ul>
 
 
-<div class="mod_tab_02">
+<div ngd-click="setView($event)" selector="li" class="mod_tab_02">
     <ul>
-        <li>视图报表</li>
-        <li>文字报表</li>
+        <li data-type="photo" ng-class="{current: Page.View == 'photo'}">视图报表</li>
+        <li data-type="word" ng-class="{current: Page.View == 'word'}">文字报表</li>
     </ul>
 </div>
 
-<div id="chart" class="mb10"></div>
-<!-- <highchart id="chart" config="chartConfig" class="mb20"></highchart> -->
+<div ng-show="Page.View == 'photo'" id="chart" class="mb10" style="width:{{Page.X}}"></div>
+    <!-- <highchart id="chart" config="chartConfig" class="mb20"></highchart> -->
 
-
-<dl class="mod_table_01">
+<dl ng-show="Page.View == 'word'" class="mod_table_01">
     <dt>
         <div></div>
         <div>日期</div>

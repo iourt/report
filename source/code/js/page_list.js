@@ -7,7 +7,9 @@ Huijm
 ){
     $rootScope.showMenu = true;
 
-
+    $scope.Page = {
+        Title: $stateParams.name
+    };
 
     widget.ajaxRequest({
         scope: $scope,
