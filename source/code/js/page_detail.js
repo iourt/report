@@ -1,39 +1,39 @@
 Huijm
 .controller('tPageDetail', function (
     $scope,
-    $rootScope
+    $rootScope,
+    widget
 ){
     $rootScope.showMenu = true;
 
     $scope.Page = {
-        TimeId: 1,
+        TimeType: 'today',
         TimeText: '今天',
-        CheckId: 1,
+        CheckType: 'pv',
         CheckText: '浏览量(PV)',
         View: 'photo'
     };
 
-
-    charts();   
-
+    // 进入页面获取数据
+    getData(); 
 
     $scope.setTime = function (e) {
         var $that = angular.element(e.delegationTarget);
 
-        $scope.Page.TimeId = $that.index() + 1;
+        $scope.Page.TimeType = $that.attr('data-type');
         $scope.Page.TimeText = $that.text();
 
-        charts();   
+        getData();
     };
 
 
     $scope.setTab = function (e) {
         var $that = angular.element(e.delegationTarget);
 
-        $scope.Page.CheckId = $that.index() + 1;
+        $scope.Page.CheckType = $that.attr('data-type');
         $scope.Page.CheckText = $that.text();
 
-        charts();   
+        getData(); 
     };
 
 
@@ -43,8 +43,78 @@ Huijm
         $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
         $scope.Page.View = $that.attr('data-type');
 
-        charts();
+        getData();
     };
+
+
+    function getData() {
+        if ($scope.Page.CheckType == 'btn') {
+            widget.ajaxRequest({
+                scope: $scope,
+                url: 'getDetailButton',
+                data: {
+                    Time: $scope.Page.TimeType
+                },
+                success: function (data) {
+                    $scope.DataList = [];
+
+                    angular.forEach(data.List, function (v, k) {
+                        $scope.DataList.push({
+                            name: v.Id,
+                            data: v.Data
+                        });
+                    });
+
+                    charts();
+                }
+            })
+        }
+
+        if ($scope.Page.CheckType == 'pv') {
+            widget.ajaxRequest({
+                scope: $scope,
+                url: 'getDetailPv',
+                data: {
+                    Time: $scope.Page.TimeType
+                },
+                success: function (data) {
+                    $scope.DataList = [];
+
+                    angular.forEach(data.List, function (v, k) {
+                        $scope.DataList.push({
+                            name: $scope.Page.CheckText,
+                            data: v.Data
+                        });
+                    });
+
+                    charts();
+                }
+            })
+        }
+
+        if ($scope.Page.CheckType == 'uv') {
+            widget.ajaxRequest({
+                scope: $scope,
+                url: 'getDetailUv',
+                data: {
+                    Time: $scope.Page.TimeType
+                },
+                success: function (data) {
+                    $scope.DataList = [];
+
+                    angular.forEach(data.List, function (v, k) {
+                        $scope.DataList.push({
+                            name: $scope.Page.CheckText,
+                            data: v.Data
+                        });
+                    });
+
+                    charts();
+                }
+            })
+        }
+    }
+
 
 
     function charts() {
@@ -83,12 +153,13 @@ Huijm
                  enabled: false
             },
 
-            series: [
-                {
-                    name: $scope.Page.CheckText,
-                    data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
-                }
-            ]
+            series: $scope.DataList
         });
     }
 });
+
+/*
+
+
+
+*/

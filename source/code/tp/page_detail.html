@@ -1,9 +1,9 @@
 <div class="mod_tab_01 mb20">
     <ul ngd-click="setTime($event)" selector="li">
-        <li ng-class="{current: Page.TimeId == 1}">今天</li>
-        <li ng-class="{current: Page.TimeId == 2}">昨天</li>
-        <li ng-class="{current: Page.TimeId == 3}">最近7天</li>
-        <li ng-class="{current: Page.TimeId == 4}">最近30天</li>
+        <li data-type="today" ng-class="{current: Page.TimeType == 'today'}">今天</li>
+        <li data-type="yesterday" ng-class="{current: Page.TimeType == 'yesterday'}">昨天</li>
+        <li data-type="week" ng-class="{current: Page.TimeType == 'week'}">最近7天</li>
+        <li data-type="month" ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
     </ul>
 
     <div class="t_btn">
@@ -40,11 +40,11 @@
 
 
 <ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
-    <li ng-class="{checked: Page.CheckId == 1}">浏览量(PV)</li>
-    <li ng-class="{checked: Page.CheckId == 2}">访客数(UV)</li>
-    <li ng-class="{checked: Page.CheckId == 3}">IP数</li>
-    <li ng-class="{checked: Page.CheckId == 4}">页面停留时间</li>
-    <li ng-class="{checked: Page.CheckId == 5}">按钮点击统计</li>
+    <li data-type="pv" ng-class="{checked: Page.CheckType == 'pv'}">浏览量(PV)</li>
+    <li data-type="uv" ng-class="{checked: Page.CheckType == 'uv'}">访客数(UV)</li>
+    <li data-type="ip" ng-class="{checked: Page.CheckType == 'ip'}">IP数</li>
+    <li data-type="stop" ng-class="{checked: Page.CheckType == 'stop'}">页面停留时间</li>
+    <li data-type="btn" ng-class="{checked: Page.CheckType == 'btn'}">按钮点击统计</li>
 </ul>
 
 
@@ -58,19 +58,65 @@
 <div ng-show="Page.View == 'photo'" id="chart" class="mb10" style="width:{{Page.X}}"></div>
     <!-- <highchart id="chart" config="chartConfig" class="mb20"></highchart> -->
 
-<dl ng-show="Page.View == 'word'" class="mod_table_01">
-    <dt>
-        <div></div>
-        <div>日期</div>
-        <div>ButtonId</div>
-        <div>点击数</div>
-    <dt>
-    <dd>
-        <div></div>
-        <div>12:00~13:00</div>
-        <div>210312</div>
-        <div>
-            12312
-        </div>
-    </dd>
-</dl>
+<section ng-show="Page.View == 'word'">
+    <dl ng-show="Page.CheckType != 'btn'" class="mod_table_01">
+        <dt>
+            <div></div>
+            <div>日期</div>
+            <div>ButtonId</div>
+            <div>点击数</div>
+        <dt>
+        <dd>
+            <div></div>
+            <div>12:00~13:00</div>
+            <div>210312</div>
+            <div>
+                12312
+            </div>
+        </dd>
+    </dl>
+
+    <dl ng-show="Page.CheckType == 'btn'" class="mod_table_02">
+        <dt>
+            <div>ButtonId</div>
+            <div>
+                <ul>
+                    <li>点击数</li>
+                    <li>
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                        <p>11</p>
+                        <p>12</p>
+                        <p>13</p>
+                        <p>14</p>
+                        <p>15</p>
+                        <p>16</p>
+                        <p>17</p>
+                        <p>18</p>
+                        <p>19</p>
+                        <p>20</p>
+                        <p>21</p>
+                        <p>22</p>
+                        <p>23</p>
+                    </li>
+                </ul>
+            </div>
+        <dt>
+        <dd ng-repeat="(k, v) in DataList track by $index">
+            <div>{{v.name}}</div>
+            <div>
+                <p ng-repeat="(i, n) in v.data track by $index">{{n}}</p>
+            </div>
+        </dd>
+    </dl>
+</section>
+
+
