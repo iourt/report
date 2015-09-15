@@ -33,10 +33,8 @@ module.exports = function (gulp, $) {
         return gulp.src(codePath+'themes/*.scss')
             .pipe($.plumber())
             .pipe($.sass())
-            .pipe($.autoprefixer('last 3 version'))
-            .pipe($.size({
-                title: 'css--------------------------------'
-            }))
+            // .pipe($.autoprefixer('last 3 version'))
+            .pipe($.size({title: 'css:'}))
             .pipe(gulp.dest(cssPath));
     });
 
@@ -85,34 +83,44 @@ module.exports = function (gulp, $) {
 
         $.livereload.listen();
 
-        gulp.src(codePath+'themes/**/*.scss')
-            .pipe($.plumber())
-            .pipe($.watch(codePath+'themes/**/*.scss', function() {
-                gulp.src(codePath+'themes/*.scss')
-                    .pipe($.plumber())
-                    .pipe($.sass())
-                    .pipe($.autoprefixer('last 3 version'))
-                    .pipe($.size({
-                        title: 'css--------------------------------'
-                    }))
-                    .pipe(gulp.dest(cssPath))
-                    .pipe($.livereload());
-            }));
+        // gulp.src(codePath+'themes/**/*.scss')
+        //     .pipe($.plumber())
+        //     .pipe($.watch(codePath+'themes/**/*.scss', function() {
+        //         gulp.src(codePath+'themes/*.scss')
+        //             .pipe($.plumber())
+        //             .pipe($.sass())
+        //             // .pipe($.autoprefixer('last 3 version'))
+        //             .pipe($.size({
+        //                 title: 'css--------------------------------'
+        //             }))
+        //             .pipe(gulp.dest(cssPath))
+        //             .pipe($.livereload());
+        //     }));
+
+        $.watch(codePath+'themes/**/*.scss', function () {
+
+            gulp.src(codePath+'themes/*.scss')
+                .pipe($.plumber())
+                .pipe($.sass())
+                .pipe($.size({title: 'css:'}))
+                .pipe(gulp.dest(cssPath))
+                .pipe($.livereload());
+        });
 
 
-        gulp.src([
-                codePath+'**/*.html',
-                codePath+'**/*.js',
-                '!'+codePath+'lib/**/*',
-                '!'+codePath+'bower/**/*'
-            ])
-            .pipe($.watch([
-                codePath+'**/*.html',
-                codePath+'**/*.js',
-                '!'+codePath+'lib/**/*',
-                '!'+codePath+'bower/**/*'
-            ]))
-            .pipe($.livereload());
+        // gulp.src([
+        //         codePath+'**/*.html',
+        //         codePath+'**/*.js',
+        //         '!'+codePath+'lib/**/*',
+        //         '!'+codePath+'bower/**/*'
+        //     ])
+        //     .pipe($.watch([
+        //         codePath+'**/*.html',
+        //         codePath+'**/*.js',
+        //         '!'+codePath+'lib/**/*',
+        //         '!'+codePath+'bower/**/*'
+        //     ]))
+        //     .pipe($.livereload());
 
     });
     

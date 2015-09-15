@@ -53,7 +53,7 @@ $border:  #ddd;
 }
 
 
-//文字超出显示...
+// 文字超出显示...
 @mixin ellipsis {
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -61,7 +61,7 @@ $border:  #ddd;
 }
 
 
-//多行文字超出显示... 参数：line-clamp
+// 多行文字超出显示... 参数：line-clamp
 @mixin multi-ellipsis($line: 3) {
     display: -webkit-box;
     -webkit-line-clamp: $line;
@@ -77,30 +77,30 @@ $border:  #ddd;
 }
 
 
-//width + height 
+// width + height 
 @mixin width-height ($wh) {
     width: $wh;
     height: $wh;
 }
 
-//height + line-height
+// height + line-height
 @mixin height-line ($height) {
     height: $height;
     line-height: $height;
 }
 
-
+// box
 @mixin box(
-    $align: "",
-    $pack: ""
+    $align: null,
+    $pack: null
 ){
     display: -webkit-box;
 
-    @if $align {
+    @if $align != null {
         -webkit-box-align: $align;
     }
 
-    @if $pack {
+    @if $pack != null {
         -webkit-box-pack: $pack;
     }
 }
