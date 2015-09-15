@@ -42,3 +42,15 @@
         }
     }
 }
+
+
+.mod_tab_02 {
+    display: inline-block;
+    ul {
+        @include box();
+        background: #eee;
+        li {
+            display: block;
+        }
+    }
+}

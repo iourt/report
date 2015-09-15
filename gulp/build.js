@@ -93,6 +93,11 @@ module.exports = function (gulp, $) {
                 .pipe($.livereload());
         });
 
+
+
+        $.watch([codePath+'**/*.js', codePath+'**/*.html'], function () {})
+            .pipe($.livereload());
+
     });
     
     //--JS 注入到页面中
