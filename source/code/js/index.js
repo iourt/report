@@ -1,7 +1,8 @@
 Huijm
 .controller('tIndex', function (
     $scope,
-    $rootScope
+    $rootScope,
+    $stateParams
 ){
     $rootScope.showMenu = true;
 

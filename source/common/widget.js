@@ -243,6 +243,31 @@ angular.module('Huijm')
             cachePool.remove("UserInfo");
             
             $rootScope.UserInfo = { UserId: 0 };
+        },
+
+
+        getTimeText: function (type) {
+            var text = "今天";
+
+            switch (type) {
+                case 'today':
+                    text = "今天";
+                break;
+
+                case 'yesterday':
+                    text = "昨天";
+                break;
+
+                case 'week':
+                    text = "最近7天";
+                break;
+
+                case 'month':
+                    text = "最近30天";
+                break;
+            }
+
+            return text;
         }
     };
 

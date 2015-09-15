@@ -1,17 +1,18 @@
 Huijm
 .controller('tCount', function (
     $scope,
-    $rootScope
+    $rootScope,
+    $stateParams,
+    widget
 ){
     $rootScope.showMenu = true;
 
     $scope.Page = {
-        TimeId: 1,
-        TimeText: '今天',
+        TimeType: $stateParams.type ? $stateParams.type: 'today',
+        TimeText: widget.getTimeText($stateParams.type),
         CheckId: 1,
         CheckText: '浏览量(PV)'
     };
-
 
     charts();
 

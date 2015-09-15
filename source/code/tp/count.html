@@ -1,9 +1,9 @@
 <div ngd-click="setTime($event)" selector="li" class="mod_tab_01 mb10">
     <ul>
-        <li ng-class="{current: Page.TimeId == 1}">今天</li>
-        <li ng-class="{current: Page.TimeId == 2}">昨天</li>
-        <li ng-class="{current: Page.TimeId == 3}">最近7天</li>
-        <li ng-class="{current: Page.TimeId == 4}">最近30天</li>
+        <li ng-class="{current: Page.TimeType == 'today'}">今天</li>
+        <li ng-class="{current: Page.TimeType == 'yesterday'}">昨天</li>
+        <li ng-class="{current: Page.TimeType == 'week'}">最近7天</li>
+        <li ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
     </ul>
 </div>
 
