@@ -21,6 +21,14 @@
         <p>9000</p>
     </li>
     <li>
+        <p>访客数(UV)</p>
+        <p>12</p>
+    </li>
+    <li>
+        <p>IP数</p>
+        <p>12</p>
+    </li>
+    <li>
         <p>页面停留时间</p>
         <p>12</p>
     </li>
@@ -33,8 +41,10 @@
 
 <ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
     <li ng-class="{checked: Page.CheckId == 1}">浏览量(PV)</li>
-    <li ng-class="{checked: Page.CheckId == 2}">页面停留时间</li>
-    <li ng-class="{checked: Page.CheckId == 3}">按钮点击统计</li>
+    <li ng-class="{checked: Page.CheckId == 2}">访客数(UV)</li>
+    <li ng-class="{checked: Page.CheckId == 3}">IP数</li>
+    <li ng-class="{checked: Page.CheckId == 4}">页面停留时间</li>
+    <li ng-class="{checked: Page.CheckId == 5}">按钮点击统计</li>
 </ul>
 
 <div id="chart" class="mb10"></div>
