@@ -22,7 +22,7 @@ switch (runType) {
     break;
 
     default: //--dev
-        netPort = argv.port || 9999;
+        netPort = argv.port || 7777;
         netPath = './source/';
 }
 
