@@ -16,7 +16,7 @@ Huijm
         templateUrl: 'code/tp/main.html',
     })
 
-    //后台登录
+    // 后台登录
     .state('report.login', {
         // cache: false,
         url: '/login.htm',
@@ -24,13 +24,22 @@ Huijm
         controller: 'tLogin'
     })
 
-    //概况数据
+    // 概况数据
     .state('report.index', {
         // cache: false,
         url: '/index.htm',
         templateUrl: 'code/tp/index.html',
         controller: 'tIndex'
     })
+
+    // 统计数据
+    .state('report.count', {
+        // cache: false,
+        url: '/count.htm?type',
+        templateUrl: 'code/tp/count.html',
+        controller: 'tCount'
+    })
+
 
     // 模块分页
     .state('report.page-list', {

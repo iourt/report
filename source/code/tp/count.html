@@ -1,0 +1,43 @@
+
+
+<ul ngd-click="setTime($event)" selector="li" class="mod_tab_01 mb10">
+    <li ng-class="{current: Page.TimeId == 1}">今天</li>
+    <li ng-class="{current: Page.TimeId == 2}">昨天</li>
+    <li ng-class="{current: Page.TimeId == 3}">最近7天</li>
+    <li ng-class="{current: Page.TimeId == 4}">最近30天</li>
+</ul>
+
+
+
+<ul class="mod_page_detail mb20">
+    <li>
+        <p>浏览量(PV) </p>
+        <p>9000</p>
+    </li>
+    <li>
+        <p>访客数(UV)</p>
+        <p>12</p>
+    </li>
+    <li>
+        <p>IP数</p>
+        <p>12312</p>
+    </li>
+    <li>
+        <p>跳出率</p>
+        <p>12312</p>
+    </li>
+    <li>
+        <p>平均访问时长</p>
+        <p>1</p>
+    </li>
+</ul>
+
+<ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
+    <li ng-class="{checked: Page.CheckId == 1}">浏览量(PV)</li>
+    <li ng-class="{checked: Page.CheckId == 2}">访客数(UV)</li>
+    <li ng-class="{checked: Page.CheckId == 3}">IP数</li>
+    <li ng-class="{checked: Page.CheckId == 4}">跳出率</li>
+    <li ng-class="{checked: Page.CheckId == 5}">平均访问时长</li>
+</ul>
+
+<div id="chart"></div>

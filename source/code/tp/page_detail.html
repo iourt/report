@@ -1,9 +1,18 @@
-<ul class="mod_tab_01 mb20">
-    <li class="current">今天</li>
-    <li>昨天</li>
-    <li>最近7天</li>
-    <li>最近30天</li>
-</ul>
+<div class="mod_tab_01 mb20">
+    <ul ngd-click="setTime($event)" selector="li">
+        <li ng-class="{current: Page.TimeId == 1}">今天</li>
+        <li ng-class="{current: Page.TimeId == 2}">昨天</li>
+        <li ng-class="{current: Page.TimeId == 3}">最近7天</li>
+        <li ng-class="{current: Page.TimeId == 4}">最近30天</li>
+    </ul>
+
+    <div class="t_btn">
+        <p class="current">按时</p>
+        <p>按天</p>
+        <p class="disable">按周</p>
+        <p class="disable">按月</p>
+    </div>
+</div>
 
 
 <ul class="mod_page_detail mb20">
@@ -23,9 +32,9 @@
 
 
 <ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
-    <li ng-class="{checked: CheckId == 1}">浏览量(PV)</li>
-    <li ng-class="{checked: CheckId == 2}">页面停留时间</li>
-    <li ng-class="{checked: CheckId == 3}">按钮点击统计</li>
+    <li ng-class="{checked: Page.CheckId == 1}">浏览量(PV)</li>
+    <li ng-class="{checked: Page.CheckId == 2}">页面停留时间</li>
+    <li ng-class="{checked: Page.CheckId == 3}">按钮点击统计</li>
 </ul>
 
 <div id="chart" class="mb10"></div>

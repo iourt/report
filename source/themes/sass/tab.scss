@@ -1,13 +1,44 @@
 ﻿.mod_tab_01 {
     background: #eee;
-    @include box();
-    li {
-        display: block;
-        line-height: 30px;
-        padding: 0 20px;
-        &.current {
-            background: $green;
-            color: #fff;
+    @include box($align: center);
+
+    ul {
+        -webkit-box-flex: 1;
+        @include box($align: center);
+        li {
+            display: block;
+            line-height: 30px;
+            padding: 0 20px;
+            cursor: pointer;
+            &.current {
+                background: $green;
+                color: #fff;
+            }
+        }
+    }
+
+    div {
+        @include box($align: center);
+        p {
+            border: 1px solid #bbb;
+            line-height: 20px;
+            background: #fff;
+            margin-right: 10px;
+            padding: 0 5px;
+            cursor: pointer;
+            &:last-child {
+                margin-right: 5px;
+            }
+            &.current {
+                background: $green;
+                border: 1px solid $green;
+                color: #fff;
+            }
+            &.disable {
+                background: #ddd;
+                border: 1px solid #ddd;
+                color: #bbb;
+            }
         }
     }
 }

@@ -5,5 +5,5 @@ Thumbs.db
 .DS_Store
 
 /node_modules/
-/source/lib/
+/source/bower/
 *.css

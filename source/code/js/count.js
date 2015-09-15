@@ -1,5 +1,5 @@
 Huijm
-.controller('tPageDetail', function (
+.controller('tCount', function (
     $scope,
     $rootScope
 ){
@@ -12,9 +12,8 @@ Huijm
         CheckText: '浏览量(PV)'
     };
 
+
     charts();
-
-
 
     $scope.setTime = function (e) {
         var $that = angular.element(e.delegationTarget);
@@ -46,34 +45,17 @@ Huijm
                 text: $scope.Page.TimeText
             },
             xAxis: {
-                // categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
-                type: 'datetime'
+                categories: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
             },
-            tooltip: {
-                xDateFormat: "%A, %b %e, %Y %H:%M",
-                shared: true
-            },
-
-            plotOptions: {
-                series: {
-                    pointStart: Date.UTC(2015, 9, 14, 1),
-                    pointInterval: 60 * 60 * 1000
-                }
-            },
-
             yAxis: {
                 title: {
                     text: $scope.Page.CheckText
                 }
             },
-            credits:{
-                 enabled: false
-            },
-
             series: [
                 {
                     name: $scope.Page.CheckText,
-                    data: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
+                    data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
                 }
             ]
         });
