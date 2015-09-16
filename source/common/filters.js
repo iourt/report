@@ -33,10 +33,10 @@ angular.module('Huijm').filter('specDate', function ($filter) {
 });
 
 /**
- * 格式化评分, 4.0~4.4对应4分，4.5~4.9对应4.5分
+ * 百分比
  */
-angular.module('Huijm').filter('formatScore', function () {
-    return function (score) {
-        return Math.floor(score / 0.5) * 10;
+angular.module('Huijm').filter('formatprec', function () {
+    return function (num) {
+        return num + '%';
     };
 });

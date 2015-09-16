@@ -245,7 +245,9 @@ angular.module('Huijm')
             $rootScope.UserInfo = { UserId: 0 };
         },
 
-
+        /**
+         * 日期筛选转换Title
+         */
         getTimeText: function (type) {
             var text = "今天";
 
@@ -268,6 +270,35 @@ angular.module('Huijm')
             }
 
             return text;
+        },
+
+        /**
+         * 转换统计类型，取数据库数据（字段匹配）
+         */
+        getCheckType: function (type) {
+            switch (type) {
+                case 'pv':
+                    type = 'Pv';
+                break;
+
+                case 'uv':
+                    type = 'Uv';
+                break;
+
+                case 'ip':
+                    type = 'Ip';
+                break;
+
+                case 'stop':
+                    type = 'Stop';
+                break;
+
+                case 'page':
+                    type = 'Page';
+                break;
+            }
+
+            return type;
         }
     };
 

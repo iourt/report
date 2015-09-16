@@ -43,6 +43,7 @@
     <li data-type="pv" ng-class="{checked: Page.CheckType == 'pv'}">浏览量(PV)</li>
     <li data-type="uv" ng-class="{checked: Page.CheckType == 'uv'}">访客数(UV)</li>
     <li data-type="ip" ng-class="{checked: Page.CheckType == 'ip'}">IP数</li>
+    <li data-type="page" ng-class="{checked: Page.CheckType == 'page'}">跳出率</li>
     <li data-type="stop" ng-class="{checked: Page.CheckType == 'stop'}">页面停留时间</li>
     <li data-type="btn" ng-class="{checked: Page.CheckType == 'btn'}">按钮点击统计</li>
 </ul>
@@ -59,20 +60,22 @@
     <!-- <highchart id="chart" config="chartConfig" class="mb20"></highchart> -->
 
 <section ng-show="Page.View == 'word'">
-    <dl ng-show="Page.CheckType != 'btn'" class="mod_table_01">
+    <dl ng-show="Page.CheckType != 'btn'" class="mod_table_03">
         <dt>
-            <div></div>
-            <div>日期</div>
-            <div>ButtonId</div>
-            <div>点击数</div>
+            <div>时间</div>
+            <div>浏览量(PV)</div>
+            <div>访客数(UV)</div>
+            <div>IP数</div>
+            <div>跳出率(Bounce rate)</div>
+            <div>页面停留时间</div>
         <dt>
-        <dd>
-            <div></div>
-            <div>12:00~13:00</div>
-            <div>210312</div>
-            <div>
-                12312
-            </div>
+        <dd ng-repeat="(k, v) in DataList.List.Pv track by $index">
+            <div>{{k}}</div>
+            <div>{{v}}</div>
+            <div>{{DataList.List.Uv[k]}}</div>
+            <div>{{DataList.List.Ip[k]}}</div>
+            <div>{{DataList.List.Page[k] | formatprec}}</div>
+            <div>{{DataList.List.Stop[k]}}</div>
         </dd>
     </dl>
 
@@ -110,7 +113,7 @@
                 </ul>
             </div>
         <dt>
-        <dd ng-repeat="(k, v) in DataList track by $index">
+        <dd ng-repeat="(k, v) in DataList.Charts track by $index">
             <div>{{v.name}}</div>
             <div>
                 <p ng-repeat="(i, n) in v.data track by $index">{{n}}</p>

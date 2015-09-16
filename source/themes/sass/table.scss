@@ -94,3 +94,34 @@
         }
     }
 }
+
+
+.mod_table_03 {
+    width: 100%;
+    display: table;
+    border-collapse: collapse;  
+    dt,
+    dd {
+        display: table-row;
+        div {
+            text-align: center;
+            padding: 10px 0;
+            display: table-cell;
+        }
+    }
+    dt {
+        font-weight: bold;
+        background: #ddd;
+        div {
+            line-height: 20px;
+            color: #000;
+        }
+    }
+    dd {
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+        div {
+            line-height: 25px;
+        }
+    }
+}

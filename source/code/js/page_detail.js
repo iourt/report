@@ -14,6 +14,12 @@ Huijm
         View: 'photo'
     };
 
+    // 构造数据结构
+    $scope.DataList = {
+        List: {},
+        Charts: []
+    };
+
     // 进入页面获取数据
     getData(); 
 
@@ -56,10 +62,10 @@ Huijm
                     Time: $scope.Page.TimeType
                 },
                 success: function (data) {
-                    $scope.DataList = [];
+                    $scope.DataList.Charts = [];
 
                     angular.forEach(data.List, function (v, k) {
-                        $scope.DataList.push({
+                        $scope.DataList.Charts.push({
                             name: v.Id,
                             data: v.Data
                         });
@@ -67,54 +73,33 @@ Huijm
 
                     charts();
                 }
-            })
+            });
         }
 
-        if ($scope.Page.CheckType == 'pv') {
+        if ($scope.Page.CheckType != 'btn') {
             widget.ajaxRequest({
                 scope: $scope,
-                url: 'getDetailPv',
+                url: 'getDetailData',
                 data: {
                     Time: $scope.Page.TimeType
                 },
                 success: function (data) {
-                    $scope.DataList = [];
+                    console.log(data);
+                    $scope.DataList.List = data.List;
 
-                    angular.forEach(data.List, function (v, k) {
-                        $scope.DataList.push({
+                    var type = widget.getCheckType($scope.Page.CheckType);
+                    $scope.DataList.Charts = [
+                        {
                             name: $scope.Page.CheckText,
-                            data: v.Data
-                        });
-                    });
+                            data: data.List[type]
+                        }
+                    ];
 
                     charts();
                 }
-            })
-        }
-
-        if ($scope.Page.CheckType == 'uv') {
-            widget.ajaxRequest({
-                scope: $scope,
-                url: 'getDetailUv',
-                data: {
-                    Time: $scope.Page.TimeType
-                },
-                success: function (data) {
-                    $scope.DataList = [];
-
-                    angular.forEach(data.List, function (v, k) {
-                        $scope.DataList.push({
-                            name: $scope.Page.CheckText,
-                            data: v.Data
-                        });
-                    });
-
-                    charts();
-                }
-            })
+            });
         }
     }
-
 
 
     function charts() {
@@ -153,7 +138,7 @@ Huijm
                  enabled: false
             },
 
-            series: $scope.DataList
+            series: $scope.DataList.Charts
         });
     }
 });
