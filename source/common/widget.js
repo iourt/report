@@ -31,7 +31,8 @@ angular.module('Huijm')
     var tPackage = {
         config: function () {
             var obj = {
-                apiSocket: '/api/'
+                apiSocket: 'http://localhost:3000/api/'
+                // apiSocket: 'api/'
             };
 
             return obj;
@@ -147,11 +148,11 @@ angular.module('Huijm')
                     isAckError  : true //------------Respone.Ack=Failure时是否显示错误信息
                 },
                 ajaxConfig = { //-----------------ajax请求配置
-                    // method: 'POST',
-                    // url: self.config().apiSocket + params.url || '',
+                    method: 'POST',
+                    url: self.config().apiSocket + params.url || '',
 
-                    method: 'GET',
-                    url: self.config().apiSocket + params.url + '.json' || '',
+                    // method: 'GET',
+                    // url: self.config().apiSocket + params.url + '.json' || '',
 
                     data: postOpt,
                     timeout: 15000
@@ -169,7 +170,9 @@ angular.module('Huijm')
 
             $http(ajaxConfig).success(function(data) {
 
-                if (data.Response && data.Response.Ack == "Success") {
+                if (!data.Response.State) console.log('用户没有登录');
+
+                if (data.Response && data.Response.Ack == "success") {
 
                     if ($scope) {
                         if (!$scope.Page) {

@@ -7,6 +7,45 @@ Huijm
     $rootScope.showMenu = true;
 
 
+    $scope.Page = {
+        TimeType: 'today',
+        TimeText: '今天',
+        CheckType: 'pv',
+        CheckText: '浏览量(PV)',
+        View: 'photo'
+    };
+
+    $scope.$watch('Page.TimeType', function () {
+        widget.ajaxRequest({
+            scope: $scope,
+            url: 'getIndexData',
+            data: {
+                Time: $scope.Page.TimeType
+            },
+            success: function (data) {
+                $scope.DataList.List = data.List;
+
+                var type = widget.getCheckType($scope.Page.CheckType);
+                $scope.DataList.Charts = [
+                    {
+                        name: $scope.Page.CheckText,
+                        data: data.List[type]
+                    }
+                ];
+
+                charts();
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
     var charts = new Highcharts.Chart({
     // $('#chart').highcharts({
         chart: {
@@ -41,7 +80,6 @@ Huijm
     });
 
 
-    $scope.CheckId = 1;
     $scope.setTab = function (e) {
         var $that = angular.element(e.delegationTarget);
 
