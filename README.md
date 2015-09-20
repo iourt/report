@@ -4,7 +4,7 @@
 #### getDetailData
 获取某个页面的统计数据信息
 
-request:
+* request:
 ```
 {
     PageId: 页面的pageid
@@ -12,7 +12,7 @@ request:
 }
 ```
 
-response:
+* response:
 ```
 {
 
