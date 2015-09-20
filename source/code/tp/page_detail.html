@@ -1,21 +1,11 @@
-<div class="mod_tab_01 mb20">
-    <ul ngd-click="setTime($event)" selector="li">
-        <li data-type="today" ng-class="{current: Page.TimeType == 'today'}">今天</li>
-        <li data-type="yesterday" ng-class="{current: Page.TimeType == 'yesterday'}">昨天</li>
-        <li data-type="week" ng-class="{current: Page.TimeType == 'week'}">最近7天</li>
-        <li data-type="month" ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
-    </ul>
+<!-- 视图切换 -->
+<tab-view></tab-view>
 
-    <div class="t_btn">
-        <p class="current">按时</p>
-        <p>按天</p>
-        <p class="disable">按周</p>
-        <p class="disable">按月</p>
-    </div>
-</div>
+<!-- 时间切换 -->
+<tab-time right="show"></tab-time>
 
 
-<ul class="mod_page_detail mb20">
+<ul class="mod_page_detail mb10">
     <li>
         <p>浏览量(PV) </p>
         <p>9000</p>
@@ -39,22 +29,8 @@
 </ul>
 
 
-<ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
-    <li data-type="pv" ng-class="{checked: Page.CheckType == 'pv'}">浏览量(PV)</li>
-    <li data-type="uv" ng-class="{checked: Page.CheckType == 'uv'}">访客数(UV)</li>
-    <li data-type="ip" ng-class="{checked: Page.CheckType == 'ip'}">IP数</li>
-    <li data-type="page" ng-class="{checked: Page.CheckType == 'page'}">跳出率</li>
-    <li data-type="stop" ng-class="{checked: Page.CheckType == 'stop'}">页面停留时间</li>
-    <li data-type="btn" ng-class="{checked: Page.CheckType == 'btn'}">按钮点击统计</li>
-</ul>
-
-
-<div ngd-click="setView($event)" selector="li" class="mod_tab_02">
-    <ul>
-        <li data-type="photo" ng-class="{current: Page.View == 'photo'}">视图报表</li>
-        <li data-type="word" ng-class="{current: Page.View == 'word'}">文字报表</li>
-    </ul>
-</div>
+<!-- 筛选项切换 -->
+<tab-detail></tab-detail>
 
 <div ng-show="Page.View == 'photo'" id="chart" class="mb10" style="width:{{Page.X}}"></div>
     <!-- <highchart id="chart" config="chartConfig" class="mb20"></highchart> -->

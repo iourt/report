@@ -21,39 +21,10 @@ Huijm
     };
 
     // 进入页面获取数据
-    getData(); 
-
-    $scope.setTime = function (e) {
-        var $that = angular.element(e.delegationTarget);
-
-        $scope.Page.TimeType = $that.attr('data-type');
-        $scope.Page.TimeText = $that.text();
-
-        getData();
-    };
+    // getData(); 
 
 
-    $scope.setTab = function (e) {
-        var $that = angular.element(e.delegationTarget);
-
-        $scope.Page.CheckType = $that.attr('data-type');
-        $scope.Page.CheckText = $that.text();
-
-        getData(); 
-    };
-
-
-    $scope.setView = function (e) {
-        var $that = angular.element(e.delegationTarget);
-
-        $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
-        $scope.Page.View = $that.attr('data-type');
-
-        getData();
-    };
-
-
-    function getData() {
+    $scope.getData = function () {
         if ($scope.Page.CheckType == 'btn') {
             widget.ajaxRequest({
                 scope: $scope,
@@ -141,6 +112,9 @@ Huijm
             series: $scope.DataList.Charts
         });
     }
+
+
+    $scope.getData();
 });
 
 /*

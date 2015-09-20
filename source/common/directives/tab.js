@@ -28,6 +28,35 @@ angular.module('Huijm')
 })
 
 
+// 详情页 筛选项
+.directive('tabDetail', function (
+    $window,
+    $rootScope,
+    widget
+) {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'common/directives/tab_detail.html',
+        // controller: function ($scope, $element, $attrs) {},
+        link: function ($scope, $element, $attrs) {
+
+            $scope.setTab = function (e) {
+                var $that = angular.element(e.delegationTarget);
+
+                $scope.Page.CheckType = $that.attr('data-type');
+                $scope.Page.CheckText = $that.text();
+
+                console.log($scope.Page);
+
+                $scope.getData();
+            };
+
+        }
+    };
+})
+
+
 .directive('tabTime', function (
     $window,
     $rootScope,
