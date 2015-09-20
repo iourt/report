@@ -18,9 +18,51 @@ angular.module('Huijm')
                 $scope.Page.CheckType = $that.attr('data-type');
                 $scope.Page.CheckText = $that.text();
 
-                // $scope.getData();
+                console.log($scope.Page);
+
+                $scope.getData();
             };
+
+        }
+    };
+})
+
+
+.directive('tabTime', function (
+    $window,
+    $rootScope,
+    widget
+) {
+    return {
+        restrict: 'E',
+        replace: true,
+        templateUrl: 'common/directives/tab_time.html',
+        // controller: function ($scope, $element, $attrs) {},
+        link: function ($scope, $element, $attrs) {
+
+            $scope.Filter = {};
+
+            if ($attrs.right == 'show') {
+                $element.find('.t_btn').css('display', '-webkit-box');
+            } else {
+                $element.find('.t_btn').css('display', 'none');
+            }
             
+            $scope.setTime = function (e) {
+                var $that = angular.element(e.delegationTarget);
+
+                $scope.Page.TimeType = $that.attr('data-type');
+                $scope.Page.TimeText = $that.text();
+
+                $scope.getData();
+            };
+
+            $scope.setTimeFilter = function (e) {
+                var $that = angular.element(e.delegationTarget);
+
+                $scope.Filter.Type = $that.attr('data-type');
+            };
+
         }
     };
 })
@@ -44,7 +86,7 @@ angular.module('Huijm')
                 $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
                 $scope.Page.View = $that.attr('data-type');
 
-                // $scope.getData();
+                $scope.getData();
             };
 
         }

@@ -72,8 +72,8 @@ $border:  #ddd;
 
 
 @mixin bottom-shadow () {
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, .1);
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, .1);
 }
 
 
@@ -105,3 +105,30 @@ $border:  #ddd;
     }
 }
 
+@mixin position(
+    $position: absolute,
+    $left: null,
+    $right: null,
+    $top: null,
+    $bottom: null,
+    $index: 0
+){
+    position: $position;
+    z-index: $index;
+
+    @if $left !=null {
+        left: $left;
+    }
+
+    @if $right !=null {
+        right: $right;
+    }
+
+    @if $top !=null {
+        top: $top;
+    }
+
+    @if $bottom !=null {
+        bottom: $bottom;
+    }
+}

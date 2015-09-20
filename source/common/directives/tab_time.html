@@ -1,0 +1,15 @@
+<div class="mod_tab_01 mb10">
+    <ul ngd-click="setTime($event)" selector="li">
+        <li data-type="today" ng-class="{current: Page.TimeType == 'today'}">今天</li>
+        <li data-type="yesterday" ng-class="{current: Page.TimeType == 'yesterday'}">昨天</li>
+        <li data-type="week" ng-class="{current: Page.TimeType == 'week'}">最近7天</li>
+        <li data-type="month" ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
+    </ul>
+
+    <div ngd-click="setTimeFilter($event)" selector="p" class="t_btn">
+        <p data-type="hour" ng-class="{current: Filter.Type == 'hour'}">按时</p>
+        <p data-type="day" ng-class="{current: Filter.Type == 'day'}">按天</p>
+        <p data-type="week" ng-class="{current: Filter.Type == 'week'}">按周</p>
+        <p data-type="month" ng-class="{current: Filter.Type == 'month'}">按月</p>
+    </div>
+</div>
