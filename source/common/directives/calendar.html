@@ -1,7 +1,8 @@
 <section class="mod_calendar">
     <div class="calendar_input" ng-click="showCalendar($event)">{{Calendar.date || '选择日期'}}</div>
 
-    <section ng-show="Calendar.show" class="calendar">
+    <!-- <section ng-show="Calendar.show" class="js_calendar calendar"> -->
+    <section class="js_calendar calendar">
         <dl>
             <dt>
                 <div ng-click="changeYear('prev')"></div>

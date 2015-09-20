@@ -11,7 +11,7 @@
     }
 
     .calendar {
-        // display: none;
+        display: none;
         @include position($left: 0, $top: 30px, $index: 10);
 
         width: 400px;

@@ -28,9 +28,7 @@ angular.module('Huijm')
 
             var date = new Date();
 
-
-            $scope.DateDay = [];
-
+            $scope.DateDay = []; // 日历数据
             $scope.Calendar = {
                 year:   date.getFullYear(), //--选择的年
                 month:  date.getMonth(), //-----选择的月
@@ -104,12 +102,16 @@ angular.module('Huijm')
                     }
                 }
 
-                $scope.Calendar.show = true;
+                // $scope.Calendar.show = true;
+                angular.element($element).find('.js_calendar').css('display', 'block');
+
             };
 
             // 显示日历，并对提交的时间处理日期
             $scope.showCalendar = function (e) {
                 if (!e) return;
+
+                angular.element(document.querySelector('body')).find('.js_calendar').css('display', 'none');
 
                 if ($scope.Calendar.date) {
                     var arr = $scope.Calendar.date.split('-');
@@ -117,7 +119,7 @@ angular.module('Huijm')
                     $scope.Calendar.year  = arr[0];
                     $scope.Calendar.month = arr[1]-1;
                     $scope.Calendar.day   = arr[2];
-                    $scope.Calendar.input = date;
+                    $scope.Calendar.input = arr[0] +'-'+ arr[1] +'-'+ arr[2];
                 }
                 $scope.setCalendar();
             };
@@ -146,14 +148,17 @@ angular.module('Huijm')
             $scope.submitCalendar = function () {
                 var data = $scope.Calendar.year +'-'+ ($scope.Calendar.month+1) +'-'+ $scope.Calendar.day;
 
-                $scope.Calendar.show = false;
+                // $scope.Calendar.show = false;
+                angular.element($element).find('.js_calendar').css('display', 'none');
+
                 $scope.Calendar.date = data;
                 ngModel.$setViewValue(data);
             };
 
             // 点击取消按钮
             $scope.cancleCalendar = function () {
-                $scope.Calendar.show = false;
+                // $scope.Calendar.show = false;
+                angular.element(document.querySelector('body')).find('.js_calendar').css('display', 'none');
                 // $scope.CalendarDate = $scope.Calendar.year +'-'+ ($scope.Calendar.month+1) +'-'+ $scope.Calendar.day;
             };
 
