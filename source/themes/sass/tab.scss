@@ -2,8 +2,10 @@
     background: #eee;
     @include box($align: center);
 
-    ul {
-        -webkit-box-flex: 1;
+    ul.t_type {
+        // -webkit-box-flex: 1;
+        display: block;
+        margin-right: 10px;
         @include box($align: center);
         li {
             display: block;
@@ -17,7 +19,16 @@
         }
     }
 
-    div {
+    div.t_calendar {
+        display: block;
+        // width: 200px;
+        @include box();
+        & > * {
+            margin-right: 10px;
+        }
+    }
+
+    div.t_btn {
         @include box($align: center);
         p {
             border: 1px solid #bbb;

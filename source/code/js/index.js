@@ -11,8 +11,10 @@ Huijm
     $scope.Page = {
         TimeType: 'today',
         TimeText: '今天',
+
         CheckType: 'pv',
         CheckText: '浏览量(PV)',
+        
         View: 'photo'
     };
 

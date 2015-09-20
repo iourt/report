@@ -37,7 +37,7 @@ angular.module('Huijm')
                 imonth: date.getMonth(), //-----当前月
                 iday:   date.getDate(), //------当前天
 
-                error:  '日期选择错误提示文本', //------------------日期选择错误提示文本
+                error:  '', //------------------日期选择错误提示文本
                 show:   false, //---------------日历是否显示的状态
                 date:   '' //-------------------显示的就是选择好的日期
             };
@@ -90,13 +90,13 @@ angular.module('Huijm')
                             }
                         }
 
+                        if (dateNum == $scope.Calendar.iday && $scope.Calendar.year == $scope.Calendar.iyear && $scope.Calendar.month == $scope.Calendar.imonth) {
+                            dayData.class = 'today';
+                        }
+
                         if (dateNum == $scope.Calendar.day) {
                             dayData.class = 'select';
                         }
-
-                        // if (dateNum == $scope.Calendar.today && $scope.Calendar.year == $scope.Calendar.iyear && $scope.Calendar.month == $scope.Calendar.imonth) {
-                        //     dayData.class='today';
-                        // }
 
                         $scope.DateDay[i].push(dayData);
                     }

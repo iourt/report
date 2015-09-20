@@ -15,17 +15,18 @@
                     <ul><li><p>日</p><p>一</p><p>二</p><p>三</p><p>四</p><p>五</p><p>六</p></li></ul>
                     <ul ngd-click="chooseCalendar($event)" selector="p">
                         <li ng-repeat="(k, v) in DateDay track by $index">
-                            <p ng-repeat="(i, n) in v track by $index" ng-class="{select: n.class == 'select', disable: n.class=='disable'}">{{n.day}}</p>
+                            <p ng-repeat="(i, n) in v track by $index" class="{{n.class}}">{{n.day}}</p>
                         </li>
                     </ul>
                 </section>
                 <div ng-click="changeMonth('next')"></div>
             </dd>
         </dl>
-        <h4>{{Calendar.error}}</h4>
+        <!-- <h4>{{Calendar.error}}</h4> -->
         <div class="calendar_btn">
-            <input ng-model="Calendar.input" />
-            <div>日期选择</div>
+            <div>选择的日期为：</div>
+            <input ng-model="Calendar.input" readonly="readonly" />
+            <blank></blank>
             <p ng-click="submitCalendar()">确定</p>
             <p ng-click="cancleCalendar()">取消</p>
         </div>
