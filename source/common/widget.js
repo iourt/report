@@ -116,6 +116,10 @@ angular.module('Huijm')
                 };
                 // UserInfo = cachePool.pull('UserInfo');
 
+            if (!$scope.Page) {
+                $scope.Page = {};
+            };
+
             if ($rootScope.UserInfo && $rootScope.UserInfo.UserId) {
                 obj.Header.UserId = $rootScope.UserInfo.UserId;
                 obj.Header.Auth = $rootScope.UserInfo.Auth;
@@ -160,39 +164,17 @@ angular.module('Huijm')
 
             for (var i in params) options[i] = params[i];
 
-            if (options.showLoading) {
-                if (!options.showPage || (options.showPage && $scope.Page.pageIndex < 2)) {
-                    // $ionicLoading.show({
-                    //     templateUrl: 'common/directives/mod_loading.html'
-                    // });
-                }
-            }
-
             $http(ajaxConfig).success(function(data) {
 
                 if (!data.Response.State) console.log('用户没有登录');
 
                 if (data.Response && data.Response.Ack == "success") {
 
-                    if ($scope) {
-                        if (!$scope.Page) {
-                            $scope.Page = {};
-                        };
-                    }
-
                     if (typeof options.success === 'function') {
                         options.success(data);
                     }
 
-                    if (params.showPage) { //如果Total大于Index*Size，则isMore = false;
-
-                        $scope.Page.isLoading = false;
-                        $scope.Page.pageTotal = data.Total || 0;
-
-                        if (!$scope.Page.pageTotal || $scope.Page.pageTotal && ($scope.Page.pageIndex * $scope.Page.pageSize) >= $scope.Page.pageTotal) {
-                            $scope.Page.isLoading = true;
-                        }
-                    }
+                    $scope.Page.Time = Response.Time;
 
                 } else {
 

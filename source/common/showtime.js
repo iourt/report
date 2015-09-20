@@ -1,6 +1,6 @@
 angular.module('Huijm')
 
-.factory('showtime', function(
+.factory('ShowTime', function(
     $q,
     $http,
     $state,
@@ -119,13 +119,13 @@ angular.module('Huijm')
         }
     };
 
-    var a = tShowTime.getDay({
-        time: 1442543369234,
-        day: 1,
-        type: 2
-    });
+    // var a = tShowTime.getDay({
+    //     time: 1442543369234,
+    //     day: 1,
+    //     type: 2
+    // });
 
-    console.log(a);
+    // console.log(a);
 
     return tShowTime;
 });

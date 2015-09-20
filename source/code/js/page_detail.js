@@ -2,15 +2,22 @@ Huijm
 .controller('tPageDetail', function (
     $scope,
     $rootScope,
-    widget
+    widget,
+    ShowTime
 ){
     $rootScope.showMenu = true;
 
     $scope.Page = {
+        Time: new Date().getTime(), //-------服务器当前时间
+        StartTime: '', //--查询开始时间
+        EndTime: '', //----查询结束时间
+
         TimeType: 'today',
         TimeText: '今天',
+
         CheckType: 'pv',
         CheckText: '浏览量(PV)',
+        
         View: 'photo'
     };
 
@@ -52,7 +59,7 @@ Huijm
                 scope: $scope,
                 url: 'getDetailData',
                 data: {
-                    Time: $scope.Page.TimeType
+                    Time: [ShowTime.getDay({time: $scope.Page.Time}).source]
                 },
                 success: function (data) {
                     console.log(data);
