@@ -1,7 +1,7 @@
 ## 安装文档
 
 ## 接口文档
-#### getPageModel
+##### getPageModel
 > 获取页面模块（分类）
 
 Request:
