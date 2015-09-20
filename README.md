@@ -17,7 +17,18 @@ Request:
 Response:
 ```
 {
-    
+    Page: [
+        {
+            Id: ID
+            Name: 模块名称
+        }
+    ]
+
+    Response: {
+        Ack: 数据返回状态 success/failure
+        State: 登录状态 true/false
+        Time: 服务器当前时间（毫秒）
+    }
 }
 ```
 
