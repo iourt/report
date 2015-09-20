@@ -16,8 +16,10 @@ Response:
 {
     Page: [
         {
-            Id:
-            Name:
+            Id: ID
+            PageId: 页面的pageid
+            Name: 页面的名称
+            Url: 页面的url
         }
     ]
 
