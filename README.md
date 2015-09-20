@@ -7,7 +7,7 @@
 Request:
 ```
 {
-    PageId: 页面的pageid
+    Id: 模块ID
     Header: {
         Auth: 用户Auth信息
         UserId: 用户ID
