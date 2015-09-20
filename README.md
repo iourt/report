@@ -17,6 +17,16 @@ Request:
 Response:
 ```
 {
+    Data: [
+        {
+            Pv: 浏览量
+            Uv: 访客数
+            Ip: IP数
+            Stop: 平均访问时长
+            Jump: 跳出率
+            Conversion: 转换率
+        }
+    ]
 
     Response: {
         Ack: 数据返回状态 success/failure
