@@ -1,19 +1,23 @@
 ## 安装文档
 
 ## 接口文档
-##### getPageModel
+##### getPageList
 > 获取页面模块（分类）
 
 Request:
 ```
 {
-
+    PageId: 页面的pageid
+    Header: {
+        Auth: 用户Auth信息
+        UserId: 用户ID
+    }
 }
 ```
 Response:
 ```
 {
-    Page: [
+    List: [
         {
             Id: ID
             PageId: 页面的pageid
@@ -21,6 +25,8 @@ Response:
             Url: 页面的url
         }
     ]
+
+    Total: 页面总数
 
     Response: {
         Ack: 数据返回状态 success/failure
@@ -38,6 +44,10 @@ request:
 {
     PageId: 页面的pageid
     Time: [] Time是个数组，第一个是开始时间，第二个是结束时间，如果只有一个时间，那就按小时来统计数据，如果有两个时间就按天来统计数据
+    Header: {
+        Auth: 用户Auth信息
+        UserId: 用户ID
+    }
 }
 ```
 
