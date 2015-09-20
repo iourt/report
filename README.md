@@ -2,6 +2,30 @@
 
 ## 接口文档
 
+##### getIndex
+> 获取概况信息
+
+Request:
+```
+{
+    Header: {
+        Auth: 用户Auth信息
+        UserId: 用户ID
+    }
+}
+```
+Response:
+```
+{
+
+    Response: {
+        Ack: 数据返回状态 success/failure
+        State: 登录状态 true/false
+        Time: 服务器当前时间（毫秒）
+    }
+}
+```
+
 ##### getPageModel
 > 获取页面模块（分类）
 
