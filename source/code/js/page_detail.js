@@ -20,6 +20,8 @@ Huijm
         
         View: 'photo'
     };
+    $scope.Page.StartTime = ShowTime.getDay({time: $scope.Page.Time}).source;
+    $scope.Page.EndTime   = ShowTime.getDay({time: $scope.Page.Time}).target;
 
     // 构造数据结构
     $scope.DataList = {
@@ -59,7 +61,10 @@ Huijm
                 scope: $scope,
                 url: 'getDetailData',
                 data: {
-                    Time: [ShowTime.getDay({time: $scope.Page.Time}).source]
+                    Time: {
+                        Start: $scope.Page.StartTime,
+                        End: $scope.Page.EndTime
+                    }
                 },
                 success: function (data) {
                     console.log(data);
