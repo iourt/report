@@ -1,8 +1,28 @@
 ## 安装文档
 
 ## 接口文档
-##### getPageList
+
+##### getPageModel
 > 获取页面模块（分类）
+
+Request:
+```
+{
+    Header: {
+        Auth: 用户Auth信息
+        UserId: 用户ID
+    }
+}
+```
+Response:
+```
+{
+    
+}
+```
+
+##### getPageList
+> 根据模块获取页面列表
 
 Request:
 ```
