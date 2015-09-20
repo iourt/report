@@ -11,6 +11,7 @@ Request:
 {
 
 }
+```
 
 Response:
 ```
@@ -30,6 +31,7 @@ Response:
         Time: 服务器当前时间（毫秒）
     }
 }
+```
 
 #### getDetailData
 > 获取某个页面的统计数据信息
