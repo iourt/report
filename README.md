@@ -104,11 +104,11 @@ Response:
 #### getDetailData
 > 获取某个页面的统计数据信息
 
-request:
+Request:
 ```
 {
     PageId: 页面的pageid
-    
+
     Time: {
         Start: 开始时间
         End: 结束时间
