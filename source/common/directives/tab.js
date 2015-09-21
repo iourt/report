@@ -80,6 +80,7 @@ angular.module('Huijm')
 .directive('tabTime', function (
     $window,
     $rootScope,
+    $stateParams,
     widget,
     ShowTime
 ) {
@@ -92,8 +93,26 @@ angular.module('Huijm')
 
             if (!$scope.Page) $scope.Page = {};
 
-            $scope.Page.TimeType = 'today';
-            $scope.Page.TimeText = '今天';
+            switch ($stateParams.type) {
+                case 'yesterday':
+                    $scope.Page.TimeType = 'yesterday';
+                    $scope.Page.TimeText = '昨天';
+                break;
+
+                case 'week':
+                    $scope.Page.TimeType = 'week';
+                    $scope.Page.TimeText = '最近7天';
+                break;
+
+                case 'month':
+                    $scope.Page.TimeType = 'month';
+                    $scope.Page.TimeText = '最近30天';
+                break;
+
+                default:
+                    $scope.Page.TimeType = 'today';
+                    $scope.Page.TimeText = '今天';
+            }
 
             // 设置回调函数
             var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};

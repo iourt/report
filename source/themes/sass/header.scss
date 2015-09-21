@@ -55,6 +55,15 @@
     top: 60px;
     width: 150px;
     display: none;
+
+
+    height: 100%;
+    padding-bottom: 100px;
+
+    @include box-sizing();
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
     &.show {
         display: block;
     }
