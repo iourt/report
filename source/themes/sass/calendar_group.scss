@@ -84,9 +84,9 @@
                                 width: 0;
                                 -webkit-box-flex: 1;
                                 @include border-half($type: all);
-                                &.today {
-                                    background: $green;
-                                }
+                                // &.today {
+                                //     background: $green;
+                                // }
                                 &.disable {
                                     color: #ccc;
                                 }

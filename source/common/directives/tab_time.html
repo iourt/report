@@ -6,11 +6,12 @@
         <li data-type="month" ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
     </ul>
 
-    <div class="t_calendar">
+    <div class="js_mid t_calendar">
         <calendar-group ng-model="Page.Calendar"></calendar-group>
+        <!-- <calendar-group ng-model="Page.Calendar2"></calendar-group> -->
     </div>
 
-    <div ngd-click="setTimeFilter($event)" selector="p" class="t_btn">
+    <div ngd-click="setTimeFilter($event)" selector="p" class="js_right t_btn">
         <p data-type="hour" ng-class="{current: Filter.Type == 'hour'}">按时</p>
         <p data-type="day" ng-class="{current: Filter.Type == 'day'}">按天</p>
         <p data-type="week" ng-class="{current: Filter.Type == 'week'}">按周</p>

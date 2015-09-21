@@ -66,17 +66,34 @@
         dt {
             padding: 5px 0;
             line-height: 20px;
-            background: #999;
-            color: #fff;
-            text-indent: 20px;
-            @include border-half($type: y);
+            background: #ddd;
+            color: #000;
+            text-indent: 5px;
+            font-size: 14px;
+            // @include border-half($type: bottom);
+            // border-bottom: 2px solid #fff;
+
+            @include icon($color: #000);
+            &.icon_01:before {
+                content: "\f493";
+                margin-right: 5px;
+            }
+            &.icon_02:before {
+                content: "\f493";
+                margin-right: 5px;
+            }
+            &.icon_03:before {
+                content: "\f493";
+                margin-right: 5px;
+            }
         }
         dd {
             ul {
                 li {
                     padding-left: 10px;
-                    line-height: 30px;
+                    line-height: 40px;
                     cursor: pointer;
+                    color: #666;
                 }
             }
         } 

@@ -10,15 +10,7 @@ Huijm
     $scope.Page = {
         Time: new Date().getTime(), //-------服务器当前时间
         StartTime: '', //--查询开始时间
-        EndTime: '', //----查询结束时间
-
-        TimeType: 'today',
-        TimeText: '今天',
-
-        CheckType: 'pv',
-        CheckText: '浏览量(PV)',
-        
-        View: 'photo'
+        EndTime: '' //----查询结束时间
     };
     $scope.Page.StartTime = ShowTime.getDay({time: $scope.Page.Time}).source;
     $scope.Page.EndTime   = ShowTime.getDay({time: $scope.Page.Time}).target;
@@ -128,9 +120,3 @@ Huijm
 
     $scope.getData();
 });
-
-/*
-
-
-
-*/

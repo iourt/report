@@ -9,30 +9,7 @@ Huijm
 
     $scope.Page = {
         TimeType: $stateParams.type ? $stateParams.type: 'today',
-        TimeText: widget.getTimeText($stateParams.type),
-        CheckId: 1,
-        CheckText: '浏览量(PV)'
-    };
-
-    charts();
-
-    $scope.setTime = function (e) {
-        var $that = angular.element(e.delegationTarget);
-
-        $scope.Page.TimeId = $that.index() + 1;
-        $scope.Page.TimeText = $that.text();
-
-        charts();
-    };
-
-
-    $scope.setTab = function (e) {
-        var $that = angular.element(e.delegationTarget);
-
-        $scope.Page.CheckId = $that.index() + 1;
-        $scope.Page.CheckText = $that.text();
-
-        charts();
+        TimeText: widget.getTimeText($stateParams.type)
     };
 
 

@@ -20,8 +20,6 @@
     }
 
     div.t_calendar {
-        display: block;
-        // width: 200px;
         @include box();
         & > * {
             margin-right: 10px;

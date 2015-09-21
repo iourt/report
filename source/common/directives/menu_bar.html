@@ -21,7 +21,7 @@
 
 
     <div class="js_menu mod_menu" ngd-click="setCurrent($event)" selector="li" ng-class="{show: MenuId == 1}">
-        <dl>
+<!--         <dl>
             <dd>
                 <ul>
                     <li ui-sref="report.index">
@@ -29,12 +29,15 @@
                     </li>
                 </ul>
             </dd>
-        </dl>
+        </dl> -->
 
         <dl>
-            <dt>趋势分析</dt>
+            <dt class="icon_01">趋势分析</dt>
             <dd>
                 <ul>
+                    <li ui-sref="report.index" class="current">
+                        数据概况
+                    </li>
                     <li ui-sref="report.count({type: 'today'})">
                         今天统计
                     </li>
@@ -49,7 +52,7 @@
         </dl>
 
         <dl>
-            <dt>按模块分析</dt>
+            <dt class="icon_02">按模块分析</dt>
             <dd>
                 <ul>
                     <!-- ui-sref-active="current" -->
@@ -62,7 +65,7 @@
 
 
         <dl>
-            <dt>来路分析</dt>
+            <dt class="icon_03">来路分析</dt>
             <dd>
                 <ul>
                     <li ui-sref="report.count({type: 'today'})">

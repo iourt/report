@@ -1,13 +1,8 @@
-<div ngd-click="setTime($event)" selector="li" class="mod_tab_01 mb10">
-    <ul>
-        <li ng-class="{current: Page.TimeType == 'today'}">今天</li>
-        <li ng-class="{current: Page.TimeType == 'yesterday'}">昨天</li>
-        <li ng-class="{current: Page.TimeType == 'week'}">最近7天</li>
-        <li ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
-    </ul>
-</div>
+<!-- 视图切换 -->
+<tab-view></tab-view>
 
-
+<!-- 时间切换 -->
+<tab-time></tab-time>
 
 <ul class="mod_page_detail mb20">
     <li>
@@ -32,12 +27,6 @@
     </li>
 </ul>
 
-<ul ngd-click="setTab($event)" selector="li" class="mod_check_01 mb10">
-    <li ng-class="{checked: Page.CheckId == 1}">浏览量(PV)</li>
-    <li ng-class="{checked: Page.CheckId == 2}">访客数(UV)</li>
-    <li ng-class="{checked: Page.CheckId == 3}">IP数</li>
-    <li ng-class="{checked: Page.CheckId == 4}">跳出率</li>
-    <li ng-class="{checked: Page.CheckId == 5}">平均访问时长</li>
-</ul>
+<tab-index></tab-index>
 
 <div id="chart"></div>

@@ -12,15 +12,22 @@ angular.module('Huijm')
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
 
+            if (!$scope.Page) $scope.Page = {};
+
+            $scope.Page.CheckType = 'pv';
+            $scope.Page.CheckText = '浏览量(PV)';
+
+            // 设置回调函数
+            var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
+
             $scope.setTab = function (e) {
                 var $that = angular.element(e.delegationTarget);
 
                 $scope.Page.CheckType = $that.attr('data-type');
                 $scope.Page.CheckText = $that.text();
 
-                console.log($scope.Page);
-
-                $scope.getData();
+                // $scope.getData();
+                callback();
             };
 
         }
@@ -28,7 +35,10 @@ angular.module('Huijm')
 })
 
 
-// 详情页 筛选项
+/**
+ * 详情页 筛选项
+ * PV、UV、IP......
+ */
 .directive('tabDetail', function (
     $window,
     $rootScope,
@@ -41,15 +51,21 @@ angular.module('Huijm')
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
 
+            if (!$scope.Page) $scope.Page = {};
+
+            $scope.Page.CheckType = 'pv';
+            $scope.Page.CheckText = '浏览量(PV)';
+
+            // 设置回调函数
+            var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
+
             $scope.setTab = function (e) {
                 var $that = angular.element(e.delegationTarget);
 
                 $scope.Page.CheckType = $that.attr('data-type');
                 $scope.Page.CheckText = $that.text();
 
-                console.log($scope.Page);
-
-                $scope.getData();
+                callback();
             };
 
         }
@@ -57,6 +73,10 @@ angular.module('Huijm')
 })
 
 
+/**
+ * 时间切换
+ * today、yesterday、week、month......
+ */
 .directive('tabTime', function (
     $window,
     $rootScope,
@@ -70,13 +90,27 @@ angular.module('Huijm')
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
 
+            if (!$scope.Page) $scope.Page = {};
+
+            $scope.Page.TimeType = 'today';
+            $scope.Page.TimeText = '今天';
+
+            // 设置回调函数
+            var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
+
             // 这是时间选项
             $scope.Filter = {};
 
             if ($attrs.right == 'show') {
-                $element.find('.t_btn').css('display', '-webkit-box');
+                $element.find('.js_right').css('display', '-webkit-box');
             } else {
-                $element.find('.t_btn').css('display', 'none');
+                $element.find('.js_right').css('display', 'none');
+            }
+
+            if ($attrs.mid == 'show') {
+                $element.find('.js_mid').css('display', '-webkit-box');
+            } else {
+                $element.find('.js_mid').css('display', 'none');
             }
             
             /**
@@ -133,7 +167,9 @@ angular.module('Huijm')
                     break;
                 };
 
-                $scope.getData();
+                // $scope.getData();
+                callback();
+
             };
 
             $scope.setTimeFilter = function (e) {
@@ -147,6 +183,10 @@ angular.module('Huijm')
 })
 
 
+/**
+ * 视图切换
+ * 视图报表、文字报表（photo、text）
+ */
 .directive('tabView', function (
     $window,
     $rootScope,
@@ -158,14 +198,22 @@ angular.module('Huijm')
         templateUrl: 'common/directives/tab_view.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
-            
+
+            if (!$scope.Page) $scope.Page = {};
+
+            $scope.Page.View = 'photo';
+
+            // 设置回调函数
+            var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
+
             $scope.setView = function (e) {
                 var $that = angular.element(e.delegationTarget);
 
                 $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
                 $scope.Page.View = $that.attr('data-type');
 
-                $scope.getData();
+                // $scope.getData();
+                callback();
             };
 
         }
