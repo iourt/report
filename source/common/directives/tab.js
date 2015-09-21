@@ -117,6 +117,19 @@ angular.module('Huijm')
             // 设置回调函数
             var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
 
+            // 日历更改数据更新调用
+            $scope.$watch('Page.Calendar', function () {
+                if ($scope.Page.Calendar) {
+                    $scope.Page.StartTime = $scope.Page.Calendar.prev;
+                    $scope.Page.EndTime   = $scope.Page.Calendar.next || $scope.Page.Calendar.prev;
+
+                    $scope.Page.TimeType = 'calendar';
+                    $scope.Page.TimeText = $scope.Page.Calendar.next ? $scope.Page.Calendar.prev+'~'+$scope.Page.Calendar.next : $scope.Page.Calendar.prev;
+                    
+                    callback();
+                }
+            });
+
             // 这是时间选项
             $scope.Filter = {};
 
