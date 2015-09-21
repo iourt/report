@@ -44,6 +44,7 @@ Huijm
                     });
 
                     charts();
+                    // $scope.showCharts();
                 }
             });
         }
@@ -71,6 +72,7 @@ Huijm
                     ];
 
                     charts();
+                    // $scope.showCharts();
                 }
             });
         }
