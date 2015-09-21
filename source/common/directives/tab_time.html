@@ -7,8 +7,7 @@
     </ul>
 
     <div class="t_calendar">
-        <calendar ng-model="Page.StartTime"></calendar>
-        <calendar ng-model="Page.EndTime"></calendar>
+        <calendar-group ng-model="Page.Calendar"></calendar-group>
     </div>
 
     <div ngd-click="setTimeFilter($event)" selector="p" class="t_btn">

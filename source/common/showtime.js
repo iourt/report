@@ -49,6 +49,73 @@ angular.module('Huijm')
         },
 
         /**
+         * 根据年月返回 上一个月 和 下一个月的年月, 年月都是js直接转化的年月
+         * @params:
+         *     year:
+         *     month:
+         *     type: 1:默认值，月份会加1转化成可视月；2:原始的JS月份，从0开始
+         * @response:
+         *     prev:
+         *     next:
+         */
+        getDate: function (year, month, type) {
+            var result = {
+                    prev: {
+                        year: '',
+                        month: ''
+                    },
+                    next: {
+                        year: '',
+                        month: ''
+                    }
+                };
+
+            if (!type && type == 1) {
+                if (month == 0) {
+                    result.prev.year  = year - 1;
+                    result.prev.month = 12;
+
+                    result.next.year  = year;
+                    result.next.month = month + 2;
+                } else if (month == 11) {
+                    result.prev.year  = year;
+                    result.prev.month = 11;
+
+                    result.next.year  = year + 1;
+                    result.next.month = 1;
+                } else {
+                    result.prev.year  = year;
+                    result.prev.month = month;
+
+                    result.next.year  = year;
+                    result.next.month = month + 2;
+                }
+            } else if (type == 2) {
+                if (month == 0) {
+                    result.prev.year  = year - 1;
+                    result.prev.month = 11;
+
+                    result.next.year  = year;
+                    result.next.month = month + 1;
+                } else if (month == 11) {
+                    result.prev.year  = year;
+                    result.prev.month = month - 1;
+
+                    result.next.year  = year + 1;
+                    result.next.month = 0;
+                } else {
+                    result.prev.year  = year;
+                    result.prev.month = month - 1;
+
+                    result.next.year  = year;
+                    result.next.month = month + 1;
+                }
+            }
+
+            return result;
+        },
+
+        /**
          * @params:
          * time: 1442543369234
          * day: 0
