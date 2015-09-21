@@ -231,8 +231,20 @@ angular.module('Huijm')
                 $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
                 $scope.Page.View = $that.attr('data-type');
 
+                if ($attrs.menu == 'show') {
+                    if ($scope.Page.View == 'word') {
+                        $element.find('div').css('display', '-webkit-box');
+                    } else {
+                        $element.find('div').css('display', 'none');
+                    }
+                }
+
                 // $scope.getData();
                 callback();
+            };
+
+            $scope.setExport = function (e) {
+                widget.msgToast('功能开发中......');
             };
 
         }

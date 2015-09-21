@@ -55,19 +55,31 @@
 
 .mod_tab_02 {
     margin-bottom: 10px;
-    display: inline-block;
-    ul {
+    // display: inline-block;
+    @include box($pack: justify);
+
+    ul,div {
         @include box();
-        background: #eee;
-        li {
+        li, p {
             display: block;
             line-height: 30px;
             padding: 0 10px;
             cursor: pointer;
+            background: #eee;
             &.current {
                 background: $green;
                 color: #fff;
             }
         }
     }
+
+    div {
+        display: none;
+        p {
+            background: #000;
+            color: #fff;
+            margin-left: 10px;
+        }
+    }
+
 }

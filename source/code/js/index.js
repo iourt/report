@@ -3,7 +3,7 @@ Huijm
     $scope,
     $rootScope,
     $stateParams,
-    showtime,
+    ShowTime,
     widget
 ){
     $rootScope.showMenu = true;
