@@ -43,7 +43,24 @@
                     @include box($align: center);
                     width: 30px;
                     text-align: center;
-                    @include icon($color: #666, $width: 30px);
+                }
+            }
+
+            dt {
+                background: #666;
+                color: #fff;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #fff;
+                h3 {
+                    // color: #333;
+                    font-size: 14px;
+                    font-weight: normal;
+                    width: 0;
+                    cursor: default;
+                    -webkit-box-flex: 1;
+                }
+                div {
+                    @include icon($color: #fff, $width: 30px);
                     &:last-child {
                         &:before {
                             content: "\f3d3";
@@ -51,21 +68,15 @@
                     }
                 }
             }
-
-            dt {
-                background: #ccc;
-                margin-bottom: 10px;
-                border-bottom: 1px solid #fff;
-                h3 {
-                    color: #333;
-                    font-size: 14px;
-                    font-weight: normal;
-                    width: 0;
-                    cursor: default;
-                    -webkit-box-flex: 1;
-                }
-            }
             dd {
+                div {
+                    @include icon($type: "\f107", $color: #666, $width: 30px);
+                    &:last-child {
+                        &:before {
+                            content: "\f10a";
+                        }
+                    }
+                }
                 section {
                     width: 0;
                     -webkit-box-flex: 1;
@@ -145,7 +156,7 @@
             }
             p {
                 display: block;
-                width: 70px;
+                width: 90px;
                 line-height: 30px;
                 text-align: center;
                 margin-right: 10px;

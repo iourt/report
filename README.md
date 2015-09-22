@@ -101,7 +101,7 @@ Response:
 }
 ```
 
-#### getDetailData
+##### getDetailData
 > 获取某个页面的统计数据信息
 
 Request:
