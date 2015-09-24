@@ -40,3 +40,16 @@ angular.module('Huijm').filter('formatprec', function () {
         return num + '%';
     };
 });
+
+/**
+ * 百分比
+ */
+angular.module('Huijm').filter('makeArr', function () {
+    return function (input, max, step) {
+        step = step || 1;
+
+        for (var i = 1; i <= max; i += step) input.push(i);
+
+        return input;
+    };
+});

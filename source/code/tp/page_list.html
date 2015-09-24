@@ -17,8 +17,10 @@
     </dl>
 </div>
 
-<ul class="mod_next_page">
-    <li>1</li>
-    <li class="current">2</li>
-    <li>3</li>
+<ul class="mod_next_page" ngd-click="setPage($event)" selector="li">
+    <li ng-repeat="(k, v) in [] | makeArr: PageTotal" ng-class="{current: v == Page.PageIndex}">
+        {{v}}
+    </li>
+    <!-- <li class="current">2</li> -->
+    <!-- <li>3</li> -->
 </ul>

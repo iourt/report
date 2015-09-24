@@ -8,20 +8,44 @@ Huijm
     $rootScope.showMenu = true;
 
     $scope.Page = {
-        Title: $stateParams.name
+        Title: $stateParams.name,
+        PageIndex: 1,
+        PageSize: 20
     };
 
-    widget.ajaxRequest({
-        scope: $scope,
-        url: 'getPageList',
-        data: {
-            Id: parseInt($stateParams.id, 0)
-        },
-        success: function (data) {
-            $scope.DataList = data;
-        },
-        error: function (error) {
 
+    $scope.loadMore = function () {
+        widget.ajaxRequest({
+            scope: $scope,
+            url: 'getPageList',
+            data: {
+                Id: parseInt($stateParams.id, 0),
+                PageSize: $scope.Page.PageSize,
+                PageIndex: $scope.Page.PageIndex
+            },
+            success: function (res) {
+                $scope.DataList = res;
+
+                var total = res.Total;
+
+                $scope.PageTotal = Math.ceil(109/$scope.Page.PageSize);
+            },
+            error: function (err) {
+
+            }
+        });
+    };
+
+    $scope.loadMore();
+
+    $scope.setPage = function (e) {
+        var $that = angular.element(e.delegationTarget),
+            size  = parseInt($that.text());
+
+        if (size != $scope.Page.PageIndex) {
+            $scope.Page.PageIndex = size;
+            $scope.loadMore();
         }
-    });
+    };
+
 });
