@@ -121,7 +121,7 @@ Request:
 }
 ```
 
-response:
+Response:
 ```
 {
     Response: {
