@@ -40,6 +40,14 @@ Huijm
         controller: 'tCount'
     })
 
+    // 分布数据
+    .state('report.client', {
+        // cache: false,
+        url: '/client.htm?type',
+        templateUrl: 'code/tp/client.html',
+        controller: 'tClient'
+    })
+
 
     // 模块分页
     .state('report.page-list', {
