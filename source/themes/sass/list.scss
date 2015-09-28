@@ -23,3 +23,37 @@
         }
     }
 }
+
+.mod_client {
+    background: #fff;
+    padding: 10px;
+
+    @include box();
+
+    .mod_client_photo {
+        display: block;
+        @include border-half($type: all);
+    }
+
+    .mod_client_list {
+        margin-left: 10px;
+        // width: 250px;
+        width: 0;
+        -webkit-box-flex: 1;
+        @include border-half($type: all);
+        li {
+            padding: 0 10px;
+            line-height: 30px;
+            @include box();
+            @include border-half($type: bottom);
+            label {
+                display: block;
+                width: 80px;
+            }
+            &:nth-child(1) {
+                background: #eee;
+            }
+            @include last-no();
+        }
+    }
+}
