@@ -7,3 +7,5 @@ Thumbs.db
 /node_modules/
 /source/bower/
 *.css
+.tmp/
+/build/

@@ -1,7 +1,7 @@
 var Huijm = angular.module('Huijm', [
     'ui.router',
     'ui.router.router',
-    'highcharts-ng',
+    // 'highcharts-ng',
     'DelegateEvents'
 ]);
 

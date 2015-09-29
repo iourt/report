@@ -2,13 +2,12 @@ var fs   = require('fs'),
     argv = require('yargs').argv,
     os   = require('os');
 
-var getProject = require('./tools/folder.js'),
-    buildFolder = require('./tools/build.folder.js')() || './build/';
+var getProject  = require('./tools/folder.js'),
+    buildFolder = require('./tools/build.folder.js')();
 
-
-var runType     = argv.run || '', // dev、build
-    packageType = argv.g || 'app', //--默认打APP的包，如果要打H5的包就 --g web
-    codePath    = "./source/", //---------代码放置目录
+var runType     = argv.run || '',
+    packageType = argv.g || 'app',
+    codePath    = "./source/", // 代码放置目录
     cssPath     = './source/themes',
     netPath     = '',
     d           = new Date(),
@@ -29,7 +28,6 @@ switch (runType) {
 module.exports = function (gulp, $) {
 
     gulp.task('sass', function() {
-
         return gulp.src(codePath+'themes/*.scss')
             .pipe($.plumber())
             .pipe($.sass())
@@ -80,7 +78,6 @@ module.exports = function (gulp, $) {
     
 
     gulp.task('watch', function() {
-
         $.livereload.listen();
 
         $.watch(codePath+'themes/**/*.scss', function () {
@@ -93,11 +90,8 @@ module.exports = function (gulp, $) {
                 .pipe($.livereload());
         });
 
-
-
         $.watch([codePath+'**/*.js', codePath+'**/*.html'], function () {})
             .pipe($.livereload());
-
     });
     
     //--JS 注入到页面中
@@ -128,7 +122,6 @@ module.exports = function (gulp, $) {
             .pipe(gulp.dest(codePath));
     });
 
-    
     //--html js 替换
     gulp.task('replacehtml', function() {
         var jsFiles = [
@@ -144,7 +137,6 @@ module.exports = function (gulp, $) {
             }))
             .pipe(gulp.dest(buildFolder));
     });
-
 
     //--生成JS模板数据
     gulp.task('templates', function() {
@@ -166,7 +158,7 @@ module.exports = function (gulp, $) {
                 codePath+'**/*.css',
                 '!'+codePath+'bower/**/*'
             ])
-            // .pipe($.minifyCss())
+            .pipe($.minifyCss())
             .pipe(gulp.dest(buildFolder));
     });
 
@@ -187,34 +179,25 @@ module.exports = function (gulp, $) {
             ])
             .pipe(gulp.dest(buildFolder));
     });
-
-    //--json 迁移
-    gulp.task('movejson', function() {
-        return gulp.src([
-                codePath+'**/*.json',
-                '!'+codePath+'bower/**/*'
-            ])
-            .pipe(gulp.dest(buildFolder));
-    });
     
     //--js 合并压缩
     gulp.task('minjs', function() {
         //--框架JS压缩合并
         var framejs = [
                 codePath+'lib/md5.js',
+                codePath+'lib/jquery-1.8.3.min.js',
+                codePath+'lib/highcharts.js',
 
         		codePath+'bower/angular/angular.js',
         		codePath+'bower/angular-touch/angular-touch.js',
         		codePath+'bower/angular-route/angular-route.js',
-        		codePath+'bower/angular-ui-router/release/angular-ui-router.js',
-                codePath+'bower/highcharts-ng/highcharts-ng.js'
+        		codePath+'bower/angular-ui-router/release/angular-ui-router.js'
             ];
 
         gulp.src(framejs)
             .pipe($.concat('frame.js'))
             .pipe($.uglify())
             .pipe(gulp.dest(buildFolder));
-
 
         //--项目公共JS压缩、合并（包括公共模板数据）
         gulp.src([
