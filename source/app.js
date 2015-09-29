@@ -121,6 +121,19 @@ Huijm
         url: '/certificate.htm',
         templateUrl: 'code/tp/certificate.html',
         controller: 'tCertificate'
+    })
+
+    // 访问统计
+    .state('report.visit', {
+        url: '/visit.htm',
+        templateUrl: 'code/tp/visit.html',
+        controller: 'tVisit'
+    })
+    // 购买统计
+    .state('report.shopping', {
+        url: '/shopping.htm',
+        templateUrl: 'code/tp/shopping.html',
+        controller: 'tShopping'
     });
 
 

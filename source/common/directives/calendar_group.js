@@ -78,6 +78,8 @@ angular.module('Huijm')
                         month = tmp.next.month;
                     }
 
+                    console.log(year);
+
                     var firstday = new Date(year, month, 1).getDay(), //------------------------------计算月份的第一天星期几
                         monthDay = [31, 28+isLeap(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31], //--各个月份的总天数
                         line     = Math.ceil((monthDay[month] + firstday) / 7); //--------------------日历显示多少行
@@ -264,6 +266,10 @@ angular.module('Huijm')
                     $scope.Calendar.nyear  = next[0];
                     $scope.Calendar.nmonth = parseInt(next[1], 0) - 1;
                     $scope.Calendar.nday   = next[2];
+                } else {
+                    $scope.Calendar.nyear  = '';
+                    $scope.Calendar.nmonth = '';
+                    $scope.Calendar.nday   = '';
                 }
 
                 $scope.Calendar.detail = [$scope.Calendar.pyear, $scope.Calendar.pmonth];
@@ -314,6 +320,8 @@ angular.module('Huijm')
                         $scope.Calendar.detail = [arr[0], parseInt(arr[1], 0)-1];
                     }
                 }
+
+                console.log($scope.Calendar.detail);
 
                 $scope.setCalendar();
             };

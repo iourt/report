@@ -72,43 +72,43 @@ angular.module('Huijm')
 
             if (!type && type == 1) {
                 if (month == 0) {
-                    result.prev.year  = year - 1;
+                    result.prev.year  = parseInt(year, 0) - 1;
                     result.prev.month = 12;
 
-                    result.next.year  = year;
-                    result.next.month = month + 2;
+                    result.next.year  = parseInt(year, 0);
+                    result.next.month = parseInt(month, 0) + 2;
                 } else if (month == 11) {
-                    result.prev.year  = year;
+                    result.prev.year  = parseInt(year, 0);
                     result.prev.month = 11;
 
-                    result.next.year  = year + 1;
+                    result.next.year  = parseInt(year, 0) + 1;
                     result.next.month = 1;
                 } else {
-                    result.prev.year  = year;
-                    result.prev.month = month;
+                    result.prev.year  = parseInt(year, 0);
+                    result.prev.month = parseInt(month, 0);
 
-                    result.next.year  = year;
-                    result.next.month = month + 2;
+                    result.next.year  = parseInt(year, 0);
+                    result.next.month = parseInt(month, 0) + 2;
                 }
             } else if (type == 2) {
                 if (month == 0) {
-                    result.prev.year  = year - 1;
+                    result.prev.year  = parseInt(year, 0) - 1;
                     result.prev.month = 11;
 
-                    result.next.year  = year;
-                    result.next.month = month + 1;
+                    result.next.year  = parseInt(year, 0);
+                    result.next.month = parseInt(month, 0) + 1;
                 } else if (month == 11) {
-                    result.prev.year  = year;
-                    result.prev.month = month - 1;
+                    result.prev.year  = parseInt(year, 0);
+                    result.prev.month = parseInt(month, 0) - 1;
 
-                    result.next.year  = year + 1;
+                    result.next.year  = parseInt(year, 0) + 1;
                     result.next.month = 0;
                 } else {
-                    result.prev.year  = year;
-                    result.prev.month = month - 1;
+                    result.prev.year  = parseInt(year, 0);
+                    result.prev.month = parseInt(month, 0) - 1;
 
-                    result.next.year  = year;
-                    result.next.month = month + 1;
+                    result.next.year  = parseInt(year, 0);
+                    result.next.month = parseInt(month, 0) + 1;
                 }
             }
 
