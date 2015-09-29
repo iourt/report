@@ -1,5 +1,10 @@
 ## 安装文档
 
+#### 环境配置
+> 环境依赖 nodejs、npm、gulp、bower,自行安装
+
+
+
 ## 接口文档
 
 ##### getIndex
