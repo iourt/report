@@ -46,20 +46,26 @@
 
 .mod_wrapper {
     width: 100%;
-    display: table;
+    // display: table;
+    @include box();
     .table_left,
     .table_mid,
     .table_right {
-        display: table-cell;
+        // display: table-cell;
+        display: block;
     }
     .table_left {
         width: $left;
     }
     .table_mid {
-        padding-top: 0;
-        padding-left: 10px;
-        padding-bottom: 10px;
+        // padding-top: 0;
+        // padding-left: 10px;
+        // padding-bottom: 10px;
         vertical-align: top;
+
+        padding: 0 10px 10px;
+        width: 0;
+        -webkit-box-flex: 1;
     }
     .table_right {
         width: 10px;

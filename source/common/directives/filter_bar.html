@@ -2,26 +2,75 @@
     <dt ngd-click="resetFilter($event)" selector="li">
         <label>筛选：</label>
         <ul>
-            <li>Android 市场</li>
-            <li>1.0</li>
+            <li ng-repeat="(k, v) in Filter track by $index" data-id="{{v.id}}" data-type="{{v.type}}" data-text="{{v.text}}">
+                {{v.text}}
+            </li>
         </ul>
     </dt>
-    <dd ngd-click="setFilter($event)" selector="li">
+
+    <!-- 下载量统计 -->
+    <dd ng-if="FilterPage=='download'" ngd-click="setFilter($event)" selector="li">
 		<div>
     	    <label>渠道：</label>
     	    <ul>
-    	        <li>Android 市场</li>
-    	        <li>360</li>
-    	        <li>AppStore</li>
+    	        <li data-id="1" data-type="a" data-text="Android 市场">Android 市场</li>
+    	        <li data-id="2" data-type="a" data-text="360">360</li>
+    	        <li data-id="3" data-type="a" data-text="AppStore">AppStore</li>
     	    </ul>
     	</div>
     	<div>
     	    <label>版本：</label>
     	    <ul>
-    	        <li>1.0</li>
-    	        <li>2.0</li>
-    	        <li>3.0</li>
+    	        <li data-id="1" data-type="b" data-text="1.0">1.0</li>
+    	        <li data-id="2" data-type="b" data-text="2.0">2.0</li>
+    	        <li data-id="3" data-type="b" data-text="3.0">3.0</li>
     	    </ul>
 		</div>
+    </dd>
+
+
+    <!-- 注册用户 -->
+    <dd ng-if="FilterPage=='register'" ngd-click="setFilter($event)" selector="li">
+        <div>
+            <label>渠道：</label>
+            <ul>
+                <li data-id="1" data-type="a" data-text="Android 市场">Android 市场</li>
+                <li data-id="2" data-type="a" data-text="360">360</li>
+                <li data-id="3" data-type="a" data-text="AppStore">AppStore</li>
+            </ul>
+        </div>
+        <div>
+            <label>版本：</label>
+            <ul>
+                <li data-id="1" data-type="b" data-text="1.0">1.0</li>
+                <li data-id="2" data-type="b" data-text="2.0">2.0</li>
+                <li data-id="3" data-type="b" data-text="3.0">3.0</li>
+            </ul>
+        </div>
+        <div>
+            <label>邀请类型：</label>
+            <ul>
+                <li data-id="1" data-type="c" data-text="用户邀请码">用户邀请码</li>
+                <li data-id="2" data-type="c" data-text="官方邀请码">官方邀请码</li>
+            </ul>
+        </div>
+    </dd>
+
+    <!-- 认证统计 -->
+    <dd ng-if="FilterPage=='certificate'" ngd-click="setFilter($event)" selector="li">
+        <div>
+            <label>小区：</label>
+            <ul>
+                <li data-id="1" data-type="a" data-text="标杆小区">标杆小区</li>
+                <li data-id="2" data-type="a" data-text="非标杆小区">非标杆小区</li>
+            </ul>
+        </div>
+        <div>
+            <label>渠道：</label>
+            <ul>
+                <li data-id="1" data-type="b" data-text="用户邀请码">用户邀请码</li>
+                <li data-id="2" data-type="b" data-text="官方邀请码">官方邀请码</li>
+            </ul>
+        </div>
     </dd>
 </dl>

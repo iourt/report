@@ -1,11 +1,11 @@
-<header-bar></header-bar>
+<header-bar ng-if="showHeader"></header-bar>
 
 <div class="mod_wrapper">
     <div class="table_left">
         <menu-bar></menu-bar>
     </div>
     <div class="table_mid" ui-view id="js_view"></div>
-    <div class="table_right"></div>
+    <!-- <div class="table_right"></div> -->
 </div>
 
 <div class="loading"></div>

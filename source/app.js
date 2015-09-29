@@ -8,9 +8,12 @@ var Huijm = angular.module('Huijm', [
 Huijm
 .run( function (
     $rootScope,
+    $location,
     $state,
     cachePool
 ) {
+    $rootScope.showHeader = false;
+
     // 获取本地用户信息
     $rootScope.UserInfo = (function () {
         var UserInfo = cachePool.pull('UserInfo');
@@ -22,23 +25,26 @@ Huijm
         return UserInfo;
     })();
 
+
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         if (toState.name == 'report.login') {
-            if ($rootScope.UserInfo || $rootScope.UserInfo.Auth) {
-                $state.go('report.index');
-            }
-
+            $rootScope.showHeader = false;
             return;
-        }         
-
-        // 用户不存在
-        if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
-            event.preventDefault();
-            $state.go('report.login', {from: fromState.name, w: 'notLogin'});
         }
 
-        if (toState.name != 'report.login') {
+        if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
+            $rootScope.showHeader = false;
+            event.preventDefault();
+            $state.go('report.login', {from: fromState.name});
+            return;
+        } else {
             $rootScope.showHeader = true;
+            // if (toState.name == 'report.login') {
+            //     $state.go('report.index', {}, {
+            //         reload: true
+            //     });
+            //     // $location.url('report/index.htm');
+            // }
         }
     });
 })
@@ -120,6 +126,6 @@ Huijm
 
 
     // $urlRouterProvider.when('', '/index.htm');
-    $urlRouterProvider.otherwise('/report/index.htm');
+    $urlRouterProvider.otherwise('/report/login.htm');
 
 });

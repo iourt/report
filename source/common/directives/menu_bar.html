@@ -9,7 +9,7 @@
         <ul ng-if="HeaderTab == 2">
             <li data-id="4" class="icon_04" ng-class="{current: MenuId==4}">用户规模</li>
             <li data-id="5" class="icon_05" ng-class="{current: MenuId==5}">活跃度</li>
-            <li data-id="5" class="icon_06" ng-class="{current: MenuId==6}">订单</li>
+            <li data-id="6" class="icon_06" ng-class="{current: MenuId==6}">订单</li>
         </ul>
     </div>
 
@@ -58,6 +58,15 @@
             </li>
             <li ui-sref="report.certificate({type: 'today'})" ng-class="{current: MenuName=='certificate'}">
                 认证统计
+            </li>
+        </ul>
+
+        <ul ng-if="MenuId==5">
+            <li ui-sref="report.download({type: 'today'})" ng-class="{current: MenuName=='download'}">
+                访问统计
+            </li>
+            <li ui-sref="report.register({type: 'today'})" ng-class="{current: MenuName=='register'}">
+                购买统计
             </li>
         </ul>
     </div>

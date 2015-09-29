@@ -2,30 +2,22 @@
     padding: 0;
     margin: 0;
 }
+html {
+    height: 100%;
+}
 body {
     font-size: 12px;
     font-family: "Microsoft YaHei";
     color: #333;
     background: #f8f8f8;
-    position: relative;
-    height: 100%;
+    // position: relative;
+    // height: 100%;
 }
 
 $left: 200px;
 
-
 body.tbody {
-    // background: -webkit-linear-gradient(left, #eee 0%, #eee 150px, #f8f8f8 150px, #f8f8f8 100%);
-
-    background: -webkit-linear-gradient(
-        left,
-        $green 0%,
-        $green 60px,
-        #eee 60px,
-        #eee $left,
-        #f8f8f8 $left,
-        #f8f8f8 100%
-    );
+    background: -webkit-linear-gradient(left, $green 0%, $green 60px, #eee 60px, #eee $left, #f8f8f8 $left, #f8f8f8 100% );
     .mod_wrapper {
         padding-top: 65px;
     }

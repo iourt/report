@@ -1,6 +1,7 @@
 Huijm
 .controller('tLogin', function (
     $scope,
+    $state,
     $rootScope,
     widget
 ){
@@ -22,6 +23,7 @@ Huijm
             UserId: 1,
             Auth: "EWED4494LFOFDF84834BCD8343"
         });
+        $state.go('report.index');
 
         widget.ajaxRequest({
             scope: $scope,
