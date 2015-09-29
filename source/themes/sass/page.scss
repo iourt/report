@@ -46,26 +46,6 @@
     }
 }
 
-
-.mod_wrapper {
-    width: 100%;
-    display: table;
-    .table_left,
-    .table_mid,
-    .table_right {
-        display: table-cell;
-    }
-    .table_left {
-        width: 160px;
-    }
-    .table_mid {
-        padding-bottom: 10px;
-    }
-    .table_right {
-        width: 10px;
-    }
-}
-
 .mod_login {
     width: 300px;
     height: 140px;
@@ -107,19 +87,19 @@
 }
 
 
-.mod_filter {
-    @include box();
-    margin-bottom: 10px;
-    li {
-        display: block;
-        line-height: 30px;
-        padding: 0 10px;
-        background: #bbb;
-        margin-right: 10px;
-        color: #fff;
-        cursor: pointer;
-    }
-}
+// .mod_filter {
+//     @include box();
+//     margin-bottom: 10px;
+//     li {
+//         display: block;
+//         line-height: 30px;
+//         padding: 0 10px;
+//         background: #bbb;
+//         margin-right: 10px;
+//         color: #fff;
+//         cursor: pointer;
+//     }
+// }
 
 
 
@@ -211,3 +191,76 @@
 h4 {
     line-height: 40px;
 }
+
+.mod_blank {
+    background: #fff;
+    padding: 10px;
+}
+
+// 筛选
+.mod_filter {
+    display: block;
+    margin-bottom: 10px;
+    // background: #fff;
+	dt, dd {
+		label {
+			display: block;
+			width: 80px;
+			line-height: 30px;
+		}	
+	}
+    dt {
+        background: #eee;
+        @include box();
+        label {
+            padding-left: 10px;
+        }
+        ul {
+            @include box($align: center);
+            li {
+                line-height: 20px;
+                @include border-half($type: all);
+                text-align: center;
+                padding: 0 10px;
+                background: $green;
+                color: #fff;
+                margin-right: 10px;
+                cursor: pointer;
+                @include icon(
+                    $type: "\f404",
+                    $elem: after,
+                    $color: #fff,
+                    $marginleft: 5px
+                );
+            }
+        }
+    }
+    dd {
+        background: #fff;
+		div {
+        	padding: 5px 10px;
+			@include box();
+        	@include border-half($type: bottom);
+        	ul {
+        	    width: 0;
+        	    -webkit-box-flex: 1;
+        	    // @include box();
+        	    font-size: 0;
+        	    li {
+        	        display: block;
+        	        padding-right: 20px;
+        	        line-height: 30px;
+        	        margin-right: 10px;
+        	        display: inline-block;
+        	        font-size: 12px;
+        	        cursor: pointer;
+        	        &.current {
+        	            color: $green;
+        	        }
+        	    }
+        	}
+		}
+    }
+}
+
+

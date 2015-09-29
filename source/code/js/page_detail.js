@@ -2,10 +2,13 @@ Huijm
 .controller('tPageDetail', function (
     $scope,
     $rootScope,
+    $stateParams,
     widget,
     ShowTime
 ){
-    $rootScope.showMenu = true;
+    $rootScope.HeaderTab = 1;
+    $rootScope.MenuId    = 3;
+    $rootScope.MenuName  = 'page_'+ $stateParams.mid;
 
     $scope.Page = {
         Time: new Date().getTime(), //-------服务器当前时间

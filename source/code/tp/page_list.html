@@ -8,7 +8,7 @@
             <div>PageName</div>
             <div>URL</div>
         </dt>
-        <dd ng-repeat="(k,v) in DataList.List track by $index" ui-sref="report.page-detail({id: v.Id})">
+        <dd ng-repeat="(k,v) in DataList.List track by $index" ui-sref="report.detail({mid: Page.Id, id: v.Id})">
             <div>{{v.Id}}</div>
             <div>{{v.PageId}}</div>
             <div>{{v.Name}}</div>

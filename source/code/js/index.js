@@ -6,7 +6,9 @@ Huijm
     ShowTime,
     widget
 ){
-    $rootScope.showMenu = true;
+    $rootScope.HeaderTab = 1;
+    $rootScope.MenuId    = 1;
+    $rootScope.MenuName  = 'index';
 
     $scope.Page = {
         TimeType: 'today',

@@ -1,0 +1,22 @@
+<header ngd-click="setHeader($event)" selector="li" ng-if="showHeader" class="mod_header">
+    <ul>
+        <li data-id="1">
+            回家么
+        </li>
+        <li data-id="1" ng-class="{current: HeaderTab == 1}">
+            行为数据
+        </li>
+        <li data-id="2" ng-class="{current: HeaderTab == 2}">
+            运营数据
+        </li>
+
+        <!--    
+        <li data-id="3" ng-class="{current: MenuId == 3}">
+            产品
+        </li>
+        <li data-id="4" ng-class="{current: MenuId == 4}">
+            其他
+        </li>
+        -->
+    </ul>
+</header>

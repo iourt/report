@@ -5,11 +5,13 @@ Huijm
     $stateParams,
     widget
 ){
-    $rootScope.showMenu = true;
+    $rootScope.HeaderTab = 1;
+    $rootScope.MenuId    = 1;
+    $rootScope.MenuName  = 'count_'+ $stateParams.time;
 
     $scope.Page = {
-        TimeType: $stateParams.type ? $stateParams.type: 'today',
-        TimeText: widget.getTimeText($stateParams.type)
+        TimeType: $stateParams.time ? $stateParams.time: 'today',
+        TimeText: widget.getTimeText($stateParams.time)
     };
 
 

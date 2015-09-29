@@ -1,5 +1,4 @@
-﻿
-.mod_header {
+﻿.mod_header {
     position: fixed;
     left: 0;
     top: 0;
@@ -8,16 +7,10 @@
     width: 100%;
     height: 50px;
     overflow: hidden;
-    display: none;
-
+    display: block;
     font-size: 14px;
 
     -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
-
-    &.show {
-        display: block;
-    }
-
     ul {
         background: $green;
         height: 50px;
@@ -49,24 +42,95 @@
 }
 
 
-.mod_menu {
-    position: fixed;
-    left: 0;
-    top: 60px;
-    width: 150px;
-    display: none;
 
 
-    height: 100%;
-    padding-bottom: 100px;
-
-    @include box-sizing();
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-
-    &.show {
-        display: block;
+.mod_wrapper {
+    width: 100%;
+    display: table;
+    .table_left,
+    .table_mid,
+    .table_right {
+        display: table-cell;
     }
+    .table_left {
+        width: $left;
+    }
+    .table_mid {
+        padding-top: 0;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        vertical-align: top;
+    }
+    .table_right {
+        width: 10px;
+    }
+}
+
+.mod_submenu {
+    @include box();
+    .t_menu_icon {
+        width: 60px;
+        li {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            @include icon(
+                $color: #fff,
+                $display: block,
+                $size: 35px
+            );
+			&.current {
+				color: #000;
+				&:before {
+					color: #000;
+				}
+			}
+            &.icon_01:before {
+                content: "\f493";
+            }
+            &.icon_02:before {
+                content: "\f483";
+            }
+            &.icon_03:before {
+                content: "\f453";
+            }
+            &.icon_04:before {
+                content: "\f3a0";
+            }
+            &.icon_05:before {
+                content: "\f3b1";
+            }
+            &.icon_06:before {
+                content: "\f119";
+            }
+        }
+    }
+
+    .t_menu_list {
+        width: 0;
+        -webkit-box-flex: 1;
+        li {
+            line-height: 40px;
+            padding-left: 10px;
+            cursor: pointer;
+            &.current {
+                background: $green;
+                background: #ccc;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+.mod_menu {
+    // position: fixed;
+    // left: 0;
+    // top: 60px;
+    width: 150px;
+
+    display: none;
     p {
         line-height: 30px;
         text-indent: 10px;

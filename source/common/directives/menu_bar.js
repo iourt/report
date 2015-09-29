@@ -12,17 +12,17 @@ angular.module('Huijm')
         templateUrl: 'common/directives/menu_bar.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
-            $scope.MenuId = 1;
+            // $rootScope.MenuId = 1;
 
-            $scope.subMenu = function (e) {
+
+            $scope.setMenu = function (e) {
                 var $that = angular.element(e.delegationTarget),
                     id = $that.attr('data-id');
 
-                $scope.MenuId = id;
+                $rootScope.MenuId = id;
             };
 
-            // 设置当前current
-            $scope.setCurrent = function (e) {
+            $scope.setMenuDetail = function (e) {
                 var $that = angular.element(e.delegationTarget),
                     $list = angular.element(document.querySelectorAll('.js_menu li'));
 

@@ -241,7 +241,7 @@ angular.module('Huijm')
             $scope.setView = function (e) {
                 var $that = angular.element(e.delegationTarget);
 
-                $scope.Page.X = (angular.element(document.querySelector('body')).width()-170)+'px';
+                $scope.Page.X = (angular.element(document.querySelector('body')).width()-220)+'px';
                 $scope.Page.View = $that.attr('data-type');
 
                 if ($attrs.menu == 'show') {

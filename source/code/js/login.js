@@ -4,8 +4,6 @@ Huijm
     $rootScope,
     widget
 ){
-    $scope.showMenu = false;
-
     $scope.tInput = {};
 
     $scope.toLogin = function () {
@@ -18,6 +16,12 @@ Huijm
             widget.msgToast('请输入密码！')
             return;
         }
+
+        // 测试用 toDo
+        widget.setLogin({
+            UserId: 1,
+            Auth: "EWED4494LFOFDF84834BCD8343"
+        });
 
         widget.ajaxRequest({
             scope: $scope,

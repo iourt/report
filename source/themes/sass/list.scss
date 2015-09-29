@@ -5,7 +5,8 @@
         border-collapse: collapse;  
         dt, dd {
             display: table-row;
-            div {
+            div,
+            p {
                 display: table-cell;
                 line-height: 20px;
                 padding: 10px;
@@ -28,7 +29,7 @@
     background: #fff;
     padding: 10px;
 
-    @include box();
+    @include box($align: start);
 
     .mod_client_photo {
         display: block;
@@ -41,7 +42,8 @@
         width: 0;
         -webkit-box-flex: 1;
         @include border-half($type: all);
-        li {
+        dt,
+        dd {
             padding: 0 10px;
             line-height: 30px;
             @include box();
@@ -49,11 +51,74 @@
             label {
                 display: block;
                 width: 80px;
-            }
-            &:nth-child(1) {
-                background: #eee;
+                @include border-half($type: right);
             }
             @include last-no();
         }
+        dt {
+            background: #eee;
+            p {
+                &:nth-child(2) {
+                    padding-left: 10px;
+                    width: 100px;
+                }
+            }
+        }
+
+        dd {
+            ul {
+                width: 0;
+                -webkit-box-flex: 1;
+                li {
+                    @include box();
+                    @include border-half($type: bottom);
+                    p {
+                        &:nth-child(1) {
+                            width: 100px;
+                            padding-left: 10px;
+                        }
+                    }
+                    @include last-no();
+                }
+            } 
+        }
     }
 }
+
+
+.list_table {
+    width: 100%;
+    display: table;
+    // border-collapse: collapse;
+    // @include border-half($type: all);
+    dt, dd {
+        display: table-row;
+        div,
+        p {
+            display: table-cell;
+            line-height: 20px;
+            padding: 10px;
+            @include border-half($type: bottom);
+        }
+    }
+
+    dt {
+        background: #eee;
+        font-weight: bold;
+        p {
+            padding: 5px 10px;
+        }
+    }
+    dd {
+        cursor: pointer;
+        p:last-child {
+            @include icon(
+                $type: "\f3d7",
+                $elem: after,
+                $color: $green,
+                $marginleft: 5px
+            );
+        }
+    }
+}
+

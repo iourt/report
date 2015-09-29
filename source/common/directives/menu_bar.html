@@ -1,26 +1,70 @@
-<div>
-    <header class="mod_header" ng-class="{show: showMenu}">
-        <ul ngd-click="subMenu($event)" selector="li">
-            <li data-id="1">
-                回家么
-            </li>
-            <li data-id="1" ng-class="{current: MenuId == 1}">
-                行为数据统计
-            </li>
-            <li data-id="2" ng-class="{current: MenuId == 2}">
-                经营数据统计
-            </li>
-    <!--         <li data-id="3" ng-class="{current: MenuId == 3}">
-                产品
-            </li>
-            <li data-id="4" ng-class="{current: MenuId == 4}">
-                其他
-            </li> -->
+<section ng-if="showHeader" class="mod_submenu">
+    <div ngd-click="setMenu($event)" selector="li" class="t_menu_icon">
+        <ul ng-if="HeaderTab == 1">
+            <li data-id="1" class="icon_01" ng-class="{current: MenuId==1}">趋势</li>
+            <li data-id="2" class="icon_02" ng-class="{current: MenuId==2}">分布</li>
+            <li data-id="3" class="icon_03" ng-class="{current: MenuId==3}">模块</li>
         </ul>
-    </header>
+
+        <ul ng-if="HeaderTab == 2">
+            <li data-id="4" class="icon_04" ng-class="{current: MenuId==4}">用户规模</li>
+            <li data-id="5" class="icon_05" ng-class="{current: MenuId==5}">活跃度</li>
+            <li data-id="5" class="icon_06" ng-class="{current: MenuId==6}">订单</li>
+        </ul>
+    </div>
+
+    <!-- ngd-click="setMenu($event)" selector="li"  -->
+    <div ngd-click="setMenuDetail($event)" selector="li" class="js_menu t_menu_list">
+        <ul ng-if="MenuId==1">
+            <li ui-sref="report.index" ng-class="{current: MenuName=='index'}">
+                数据概况
+            </li>
+            <li ui-sref="report.count({time: 'today'})" ng-class="{current: MenuName=='count_today'}">
+                今天统计
+            </li>
+            <li ui-sref="report.count({time: 'yesterday'})"  ng-class="{current: MenuName=='count_yesterday'}">
+                昨日统计
+            </li>
+            <li ui-sref="report.count({time: 'week'})" ng-class="{current: MenuName=='count_week'}">
+                最近7天
+            </li>
+            <li ui-sref="report.count({time: 'month'})" ng-class="{current: MenuName=='count_month'}">
+                最近30天
+            </li>
+        </ul>
+
+        <ul ng-if="MenuId==2">
+            <li ui-sref="report.client({type: 'app', time: 'today'})" ng-class="{current: MenuName=='client_app'}">
+                APP版本统计
+            </li>
+            <li ui-sref="report.client({type: 'os', time: 'today'})" ng-class="{current: MenuName=='client_os'}">
+                系统分布统计
+            </li>
+        </ul>
+
+        <ul ng-if="MenuId==3">
+            <!-- ui-sref-active="current" -->
+            <li ng-repeat="(k,v) in PageList.Page track by $index" ui-sref="report.list({id: v.Id, name: v.Name})" ng-class="{current: MenuName=='page_'+v.Id}">
+                {{v.Name}}
+            </li>
+        </ul>
+
+        <ul ng-if="MenuId==4">
+            <li ui-sref="report.download({type: 'today'})" ng-class="{current: MenuName=='download'}">
+                下载量统计
+            </li>
+            <li ui-sref="report.register({type: 'today'})" ng-class="{current: MenuName=='register'}">
+                注册用户
+            </li>
+            <li ui-sref="report.certificate({type: 'today'})" ng-class="{current: MenuName=='certificate'}">
+                认证统计
+            </li>
+        </ul>
+    </div>
 
 
-    <div class="js_menu mod_menu" ngd-click="setCurrent($event)" selector="li" ng-class="{show: MenuId == 1}">
+
+ <!--    <div class="js_menu mod_menu" ngd-click="setCurrent($event)" selector="li" ng-class="{show: MenuId == 1}">
         <dl>
             <dt class="icon_01">趋势分析</dt>
             <dd>
@@ -48,7 +92,6 @@
             <dt class="icon_02">按模块分析</dt>
             <dd>
                 <ul>
-                    <!-- ui-sref-active="current" -->
                     <li ng-repeat="(k,v) in PageList.Page" ui-sref="report.page-list({id: v.Id, name: v.Name})">
                         {{v.Name}}
                     </li>
@@ -67,5 +110,9 @@
                 </ul>
             </dd>
         </dl>
-    </div>
-</div>
+    </div> -->
+
+
+
+                    <!-- ui-sref-active="current" -->
+</section>

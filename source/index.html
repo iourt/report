@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="themes/all.css">
         <!-- endbuild -->
     </head>
-    <body ng-class="{tbody: showMenu}">
+    <body ng-class="{tbody: showHeader}">
 
         <div ui-view></div>
 
@@ -39,6 +39,8 @@
         <script src="common/directives/calendar_group.js"></script>
         <script src="common/directives/charts.js"></script>
         <script src="common/directives/delegate_event.js"></script>
+        <script src="common/directives/filter_bar.js"></script>
+        <script src="common/directives/header_bar.js"></script>
         <script src="common/directives/menu_bar.js"></script>
         <script src="common/directives/router_redirect.js"></script>
         <script src="common/directives/tab.js"></script>
@@ -46,12 +48,15 @@
         
 
         <!-- inject:js -->
+        <script src="code/js/certificate.js"></script>
         <script src="code/js/client.js"></script>
         <script src="code/js/count.js"></script>
+        <script src="code/js/download.js"></script>
         <script src="code/js/index.js"></script>
         <script src="code/js/login.js"></script>
         <script src="code/js/page_detail.js"></script>
         <script src="code/js/page_list.js"></script>
+        <script src="code/js/register.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
     </body>

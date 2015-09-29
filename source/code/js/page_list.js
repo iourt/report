@@ -5,12 +5,15 @@ Huijm
     $stateParams,
     widget
 ){
-    $rootScope.showMenu = true;
+    $rootScope.HeaderTab = 1;
+    $rootScope.MenuId    = 3;
+    $rootScope.MenuName  = 'page_'+ $stateParams.id;
 
     $scope.Page = {
         Title: $stateParams.name,
         PageIndex: 1,
-        PageSize: 20
+        PageSize: 20,
+        Id: parseInt($stateParams.id, 0)
     };
 
 
@@ -19,7 +22,7 @@ Huijm
             scope: $scope,
             url: 'getPageList',
             data: {
-                Id: parseInt($stateParams.id, 0),
+                Id: $scope.Page.Id,
                 PageSize: $scope.Page.PageSize,
                 PageIndex: $scope.Page.PageIndex
             },

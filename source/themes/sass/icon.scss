@@ -19,7 +19,10 @@
 
     $radius: null,
 
-    $float: null
+    $float: null,
+
+    $marginright: null,
+    $marginleft: null
 ) {
     &:#{$elem} {
         @include font-icon();
@@ -74,6 +77,14 @@
 
         @if $float != null {
             float: $float;
+        }
+
+        @if $marginleft != null {
+            margin-left: $marginleft;
+        }
+
+        @if $marginright != null {
+            margin-right: $marginright;
         }
     }
 }

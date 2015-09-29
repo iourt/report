@@ -6,6 +6,42 @@ var Huijm = angular.module('Huijm', [
 ]);
 
 Huijm
+.run( function (
+    $rootScope,
+    $state,
+    cachePool
+) {
+    // 获取本地用户信息
+    $rootScope.UserInfo = (function () {
+        var UserInfo = cachePool.pull('UserInfo');
+
+        if (!UserInfo) {
+            UserInfo = { UserId: 0 };
+        }
+
+        return UserInfo;
+    })();
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        if (toState.name == 'report.login') {
+            if ($rootScope.UserInfo || $rootScope.UserInfo.Auth) {
+                $state.go('report.index');
+            }
+
+            return;
+        }         
+
+        // 用户不存在
+        if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
+            event.preventDefault();
+            $state.go('report.login', {from: fromState.name, w: 'notLogin'});
+        }
+
+        if (toState.name != 'report.login') {
+            $rootScope.showHeader = true;
+        }
+    });
+})
 .config( function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
@@ -35,7 +71,7 @@ Huijm
     // 统计数据
     .state('report.count', {
         // cache: false,
-        url: '/count.htm?type',
+        url: '/count.htm?time',
         templateUrl: 'code/tp/count.html',
         controller: 'tCount'
     })
@@ -43,23 +79,42 @@ Huijm
     // 分布数据
     .state('report.client', {
         // cache: false,
-        url: '/client.htm?type',
+        url: '/client_{type}.htm?time',
         templateUrl: 'code/tp/client.html',
         controller: 'tClient'
     })
 
 
     // 模块分页
-    .state('report.page-list', {
-        url: '/page-list-{id}.htm?name',
+    .state('report.list', {
+        url: '/list-{id}.htm?name',
         templateUrl: 'code/tp/page_list.html',
         controller: 'tPageList'
     })
     // 模块页面具体信息
-    .state('report.page-detail', {
-        url: '/page-detail-{id}.htm',
+    .state('report.detail', {
+        url: '/detail-{mid}-{id}.htm',
         templateUrl: 'code/tp/page_detail.html',
         controller: 'tPageDetail'
+    })
+
+    // 下载量统计
+    .state('report.download', {
+        url: '/download.htm',
+        templateUrl: 'code/tp/download.html',
+        controller: 'tDownload'
+    })
+    // 注册统计
+    .state('report.register', {
+        url: '/register.htm',
+        templateUrl: 'code/tp/register.html',
+        controller: 'tRegister'
+    })
+    // 认证统计
+    .state('report.certificate', {
+        url: '/certificate.htm',
+        templateUrl: 'code/tp/certificate.html',
+        controller: 'tCertificate'
     });
 
 
