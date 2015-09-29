@@ -1,8 +1,8 @@
 {
-  "name": "yejsApp",
+  "name": "report",
   "version": "1.0.0",
   "private": true,
-  "description": "yejsApp",
+  "description": "report",
   "main": "gulpfile.js",
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -38,11 +38,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/appue/chtml.git"
+    "url": "https://github.com/enuobear"
   },
   "author": "appue",
   "bugs": {
-    "url": "https://github.com/appue/chtml/issues"
+    "url": "https://github.com/enuobear"
   },
-  "homepage": "https://github.com/appue/chtml"
+  "homepage": "https://github.com/enuobear"
 }
