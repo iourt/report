@@ -135,6 +135,7 @@ module.exports = function (gulp, $) {
                 'css': 'themes/all.css?v='+ version,
                 'js': jsFiles
             }))
+            .pipe($.htmlmin({collapseWhitespace: true}))
             .pipe(gulp.dest(buildFolder));
     });
 
