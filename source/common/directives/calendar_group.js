@@ -177,6 +177,8 @@ angular.module('Huijm')
                     $scope.Calendar.nextDate = '';
                 }
 
+                $scope.setmpCalendar();
+                
                 $scope.setCalendar();
             };
 
